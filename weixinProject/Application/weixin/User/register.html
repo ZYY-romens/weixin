@@ -1,0 +1,288 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>注册</title>
+</head>
+	<body class="wx-bg-gray">
+	  <!--<include file="Public/top" />-->
+	  <div class="download-top wx-top">
+    	<div class="download-con">
+    		<a class="download-arrows"></a>
+    		<span>注册</span>
+    	</div>
+    </div>
+	  <div class="activeOutdatePop">111</div>
+		<div class="wx-register">
+			<form   method="post" id="form1" onsubmit="return false;">
+				<div class="wx-register-con">
+				    <div class="wx-register-txt">
+					    <input type="number" name="mobile" id="mobile"  class="" maxlength="11" placeholder="手机号" oninput="if(value.length>11)value=value.slice(0,11)" data-validate="phone" data-describedby="phone-description"/>
+				    </div>
+				    <div class="wx-register-txt">
+					    <input type="text" id="verify" name="verify"  class="" maxlength="4" placeholder="图形验证码"/>
+						<input type="hidden" id="verifys" name="verifys" value="" />
+					    <a class="tuxing-yz" href="javascript:;">
+					    	<!--<img src="__IMG__/getcaptcha.jpg"/>-->
+					    	<img id="u-captcha2s" src="../../../Public/weixin/images/flowyz_img.jpg" width="118" height="35" />
+					    </a>
+				    </div>
+				    <div class="wx-register-txt">
+					    <input type="number" name="code" id="code"  class="" maxlength="6" placeholder="短信校验码" oninput="if(value.length>6)value=value.slice(0,6)" data-descriptions="phoneyzm" data-conditional="phoneyzm"/>
+				        <span class="wx-register-yz text_blue" id="getver J-register-getcode">发送验证码</span>
+				    </div>
+				    <div class="wx-register-txt">
+					    <input type="password" id="password" name="pwd"  class="wx-regPsw" placeholder="请设置登录密码，首位为字母"  oninput="if(value.length>16)value=value.slice(0,16)" data-validate="pwd" data-describedby="pwd-description"/>
+			            <i class="icon-register-visible"></i>
+			            <i class="register-hide icon-register-hide" style="display: none;"></i>
+				    </div>
+                   <if  condition="$id eq ''">
+                   
+				    <div class="wx-register-txt">
+			            <input type="number" name=""  id="reffer" class="" maxlength="" placeholder="推荐人的手机号/邀请码（选填）"/>
+			        </div>
+                    <else/>
+                     <div class="wx-register-txt" style="display: none;">
+			            <input type="number" name=""  id="reffer" class="" maxlength="" value="{$id}" placeholder="推荐人的手机号/邀请码（选填）"/>
+			        </div>
+                    </if>
+			   </div>		
+				<input type="submit" class="newRegReg wx-register-btn"  value="注册" />	
+			</form>
+		</div>
+		<div class="wx-register-ban">
+			 
+				<p>轻触“注册”按钮，即表示您同意</p>
+				<p><a href="{:U('Weixin/Agreement/register')}">《网站注册协议》</a>、<a href="{:U('Weixin/Agreement/secret')}">《隐私保护规则》</a><br>
+					和<a href="{:U('Weixin/Agreement/investconsult')}">《投资咨询与管理服务协议》</a></p>
+		 
+				
+	    </div>
+		 <!--<include file="Public/footer" />-->
+		 	 <script type="text/javascript" src="../../../Public/weixin/js/jquery.min.js"  charset="utf-8"></script>
+		 <script type="text/javascript" src="../../../Public/weixin/js/changeWidth.js"></script>	
+		<script type="text/javascript" src="../../../Public/weixin/js/jquery-mvalidate.js"></script>		 
+	<script type="text/javascript">
+		/*validate */
+	$(function(){
+		var verifys_url="{:U('Weixin/User/verifys')}"
+		$("#u-captcha2s").click(function(){
+			$("#u-captcha2s").attr("src", verifys_url + '&random=' + (new Date()).getTime());
+		});
+
+		$("#verify").blur(function(){
+			var verify = $('#verify').val();
+			if(verify != '' && verify.length == '4') {
+				$.ajax({
+					type: "POST",
+					url: "{:U('Weixin/User/register')}",
+					data: 'verify=' + verify,
+					success: function (msg) {
+						msg = $.parseJSON(msg);
+						if (msg.error == '2') {
+							$("#u-captcha2s").attr("src", verifys_url + '&random=' + (new Date()).getTime());
+							$.mvalidateTip(msg.data);
+						}
+					}
+				});
+			}
+		});
+
+
+        $.mvalidateExtend({
+        	//验证手机号 密码  校验码
+            phone:{
+                required : true,   
+                pattern : /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-3,5-9]{1})|(17[0,1,3,5-8]{1})|(18[0-9]{1}))+\d{8})$/,
+                each:function(){
+                   
+                },
+                descriptions:{
+                    required : '<div class="field-invalidmsg">请填写手机号</div>',
+                    pattern : '<div class="field-invalidmsg">请填写您的真实手机号码</div>',
+                }
+            },
+            pwd:{
+                required : true,   
+                pattern : /^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z]{1}[0-9A-Za-z]{5,16}$/,
+                each:function(){
+                   
+                },
+                descriptions:{
+                    required : '<div class="field-invalidmsg">请输入密码</div>',
+                    pattern : '<div class="field-invalidmsg">首位必须是字母，6~16 位，必须由数字和字母组成，区分大小写</div>',
+                }
+            }
+        });
+        $("#form1").mvalidate({
+            type:1,
+            onKeyup:true,
+            sendForm:true,
+            firstInvalidFocus:false,
+            descriptions: {
+                phoneyzm: {
+                    required: '请输入手机验证码',
+                }
+            },
+            valid:function(event,options){
+                //点击提交按钮时,表单通过验证触发函数
+                 $('.wx-register-btn').prop('disabled','disabled');
+               var reffer = $('#reffer').val().trim();
+              $.ajax({
+	            type: "POST",
+	            url: "{:U('Weixin/User/register')}",
+	            data: 'verifys=' + $('#verifys').val()+ '&verify=' + $('#verify').val()+ '&code=' + $('#code').val() + '&phone=' + $('#mobile').val()+ '&recommend=' + $('#reffer').val()+ '&password=' + $('#password').val(),
+	            success: function(msg) {
+	                msg = $.parseJSON(msg);
+	                 if(msg.error=='1'){
+						 $.mvalidateTip(msg.data);
+						  $('.wx-register-btn').removeAttr('disabled');
+//						 按钮可点
+					 }else if(msg.error=='2'){
+						 $.mvalidateTip(msg.data);
+						  $('.wx-register-btn').removeAttr('disabled');
+ //						 按钮可点
+	                }else{
+						 if (msg.url) {
+							window.location.href = msg.url;
+						}
+	                }
+	            }
+        	});
+            },
+            invalid:function(event, status, options){
+                //点击提交按钮时,表单未通过验证触发函数
+            },
+            eachField:function(event,status,options){
+                //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+            },
+            eachValidField:function(val){},
+            eachInvalidField:function(event, status, options){},
+        })
+	})
+/*validate end*/
+/*实时提示*/
+function realtimePhone(){
+	console.log(isNaN($(this).val()));
+	if(isNaN($(this).val())){
+		$.mvalidateTip("手机号只能是数字！");
+	}
+}
+var pwdFirstCheck = function(){
+	var _self = $(this);
+	var firstLetter = _self.val().substr(0,1);
+	var str =  /^[A-Za-z]*$/;
+	if(!str.test(firstLetter)){
+		$.mvalidateTip("登录密码的首位只能是字母");
+		_self.val("");
+	}
+}
+$("#mobile").on("input",realtimePhone);
+$("#password").on("input",pwdFirstCheck);
+/*实时提示结束*/
+		
+	$(function(){
+		  //获取注册码的url地址
+			var auth_url="{:U('Weixin/User/getver')}";
+			var  remainingTime = 60;//倒计时时间
+			var timerClock = null;
+	      //发送验证码 校验手机号 手机号校验成功后才能发送手机号
+	      var getver = function(){
+	      		var phoneNum = $("#mobile").val();
+	      		var checkVer = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-3,5-9]{1})|(17[0,1,3,5-8]{1})|(18[0-9]{1}))+\d{8})$/.test(phoneNum);
+	      		if(checkVer){
+	      			if(($(".wx-register-yz").text()=="点击重新获取")||($(".wx-register-yz").text()=="发送验证码")){
+	      				$.ajax({
+			    		   type: "POST",
+			    		   url: auth_url,
+			    		   data: 'mobile='+phoneNum,
+			    		   success: function(msg){
+			    			   if(msg!=""){
+			    			     $.mvalidateTip(msg);
+			    			   }else{
+			    			   		$.mvalidateTip("短信发送成功！");
+			    			   		startTimerClock()
+			    			   }
+			    		   }
+			    		});
+	      			}
+	      		}else{
+	      			$.mvalidateTip("请填写您的真实手机号码！");
+	      		} 
+	            
+	      }
+	      $(".wx-register-yz").on("click",getver);
+		  //倒计时
+		  //开始计时器
+		function startTimerClock(){
+			clearTimeout(timerClock);
+			if(remainingTime <= 0){
+			endTimerClock();
+			return;
+			}
+			$('.text_blue').css({"color":"#e5e5e5"});
+			$(".wx-register-yz").attr('disabled','disabled');
+			$(".wx-register-yz").text("剩余" + remainingTime + "秒");
+			$(".wx-register-yz").innerHTML = remainingTime;
+			timerClock = setTimeout(function(){
+			startTimerClock();
+			remainingTime--;
+			}, 1000);
+		};
+		//结束计时器
+		function endTimerClock(){
+			clearTimeout(timerClock);
+			isTimeing = false;//重置倒计时状态
+			$(".wx-register-yz").text("点击重新获取");
+			remainingTime = 60;
+			$(".wx-register-yz").removeAttr('disabled');
+			$('.text_blue').css({"color":"#49a7f6"});
+			//setGetAuthCodeBtnStyleForState("disabled");
+			//$("#J-register-phone")[0].disabled = false;
+		};
+          //密码显示隐藏
+			$('.wx-register-txt i').on("click",function(){
+				var vis = $('.icon-register-visible');
+				var hide = $('.icon-register-hide');
+				if(vis.is(":visible")){
+					$(".wx-regPsw").prop("type","text");
+					vis.hide();
+					hide.show();
+				}else{
+					$(".wx-regPsw").prop("type","password");
+					vis.show();
+					hide.hide();
+				}
+			});
+			/*优化底部文字*/
+			/*var inputF = $("input");
+			var changePos1 = function(){
+				$(".wx-register-ban").addClass("register-bottom-adjust");
+			}
+			var changePos2 = function(){
+				$(".wx-register-ban").removeClass("register-bottom-adjust");
+			}
+			inputF.on("focus",changePos1);
+			inputF.on("blur",changePos2);*/
+			var marginTop = $(window).height()-$(".wx-top").height()-445;
+			$(".wx-register-ban").css("margin-top",marginTop+"px")
+		});
+	</script>
+
+

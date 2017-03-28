@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>网贷之家</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<style>
+			*{margin:0;padding:0}
+             body{font-family: "微软雅黑";}
+             a{text-decoration: none;}
+            .net-credit img{display: block;width:100%}
+            .credit-gift{position: relative;}
+            .credit-gift a {
+            	text-align: center;
+            	display: block;
+            	position: absolute;
+            	bottom: 0;
+            	color: #bd182e;
+            	left: 0;
+            	right: 0;
+            	margin:auto;
+            	width:4.266667rem;;
+            	text-align:center;
+            	border:solid 1px #BD182E;
+            	border-radius: 0.4333rem;
+            	-webkit-border-radius: 0.4333rem;
+            	-moz-border-radius:0.4333rem;
+            	font-size: 0.32rem;
+            	height:0.6rem;
+            	line-height: 0.6rem;
+            	}
+        	.credit-enter{position: absolute;top:8.186667rem;right:0.06667rem}
+        	.credit-enter img{display: block;width:2.506667rem}
+        	.credit-enter a{display: block;width:2.506667rem;height:2.506667rem;position: absolute;bottom: 0;border-radius: 50%;-webkit-border-radius:50%;-moz-border-radius:50%}
+	        .credit-enter{-webkit-animation:bounceInDown 1s 1;animation: bounceInDown 1s 1;-moz-animation: bounceInDown 1s 1;}
+			@-webkit-keyframes bounceInDown {
+			  from, 60%, 75%, 90%, to {
+			    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+			    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+			  }
+			
+			  0% {
+			    opacity: 0;
+			    -webkit-transform: translate3d(0, -3000px, 0);
+			    transform: translate3d(0, -3000px, 0);
+			  }
+			
+			  60% {
+			    opacity: 1;
+			    -webkit-transform: translate3d(0, 25px, 0);
+			    transform: translate3d(0, 25px, 0);
+			  }
+			
+			  75% {
+			    -webkit-transform: translate3d(0, -10px, 0);
+			    transform: translate3d(0, -10px, 0);
+			  }
+			
+			  90% {
+			    -webkit-transform: translate3d(0, 5px, 0);
+			    transform: translate3d(0, 5px, 0);
+			  }
+			
+			  to {
+			    -webkit-transform: none;
+			    transform: none;
+			  }
+			}
+			
+			@keyframes bounceInDown {
+			  from, 60%, 75%, 90%, to {
+			    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+			    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+			  }
+			
+			  0% {
+			    opacity: 0;
+			    -webkit-transform: translate3d(0, -3000px, 0);
+			    transform: translate3d(0, -3000px, 0);
+			  }
+			
+			  60% {
+			    opacity: 1;
+			    -webkit-transform: translate3d(0, 25px, 0);
+			    transform: translate3d(0, 25px, 0);
+			  }
+			
+			  75% {
+			    -webkit-transform: translate3d(0, -10px, 0);
+			    transform: translate3d(0, -10px, 0);
+			  }
+			
+			  90% {
+			    -webkit-transform: translate3d(0, 5px, 0);
+			    transform: translate3d(0, 5px, 0);
+			  }
+			
+			  to {
+			    -webkit-transform: none;
+			    transform: none;
+			  }
+			}
+			
+			.bounceInDown {
+			  -webkit-animation-name: bounceInDown;
+			  animation-name: bounceInDown;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="net-credit">
+			<img src="../../../Public/Weixin/images/credict-img01.jpg" alt="" />
+			<img src="../../../Public/Weixin/images/credict-img02.jpg" alt="" />
+			<img src="../../../Public/Weixin/images/credict-img03.jpg" alt="" />
+			<img src="../../../Public/Weixin/images/credict-img04.jpg" alt="" />
+			<div class="credit-gift">
+				<img src="../../../Public/Weixin/images/credict-img05.jpg" alt="" />
+				<a href="#">投资汇直投项目≥20000元</a>
+			</div>
+			<div class="credit-gift">
+				<img src="../../../Public/Weixin/images/credict-img06.jpg" alt="" />
+				<a href="#">注册开户即送</a>
+			</div>
+			<img src="../../../Public/Weixin/images/credict-img07.jpg" alt="" />
+			<img src="../../../Public/Weixin/images/credict-img08.jpg" alt="" />
+			<img src="../../../Public/Weixin/images/credict-img09.jpg" alt="" />
+			<img src="../../../Public/Weixin/images/credict-img10.jpg" alt="" />
+		</div>
+		<div class="credit-enter">
+			<img src="../../../Public/Weixin/images/credict-btn-img.png" alt="" />
+			<a href="#"></a>
+		</div>
+	</body>
+</html>
+	<script src="../js/jquery.min.js"></script>
+	<script>
+       function changeFZ(){
+             var w = $(window).width();
+             setHtmlFz(w /10);
+      }
+      function setHtmlFz (fz){
+             $("html"). css("font-size" ,fz+"px" );
+      }
+       window.onload = function(){
+            changeFZ();
+      }
+       window.onresize = function(){
+            changeFZ();
+      }
+</script>
+

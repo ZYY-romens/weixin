@@ -1,0 +1,206 @@
+*{margin:0;padding:0}
+html{
+  width: 100%;
+  overflow-x: hidden;
+}
+body{margin:0;font:12px/2 "Microsoft YaHei","΢���ź�",Arial, sans-serif,Tahoma,Helvetica;color:#8C8C8C;width: 100%; }
+ .inner{ width: 1060px; margin: 0 auto; padding:0; position:relative; }
+ 
+/*links*/
+a{color:#525252;text-decoration:none;outline:0;-webkit-tap-highlight-color:transparent;}
+a:hover{ text-decoration:none}
+.binding{color:#2ea7e0 !important}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+body,dl,dt,dd,ol,ul,li,p,h1,h2,h3,h4{margin:0;padding:0}
+ul{list-style:none}
+em,i{font-style:normal}
+table{border-spacing:0;border-collapse:collapse; width:100%}
+img{border:0;vertical-align:middle}
+button,input,select,textarea{font-size:100%;font-family:"Microsoft YaHei";margin:0;outline:0 none;vertical-align:baseline;*vertical-align:middle}
+textarea{overflow:auto;vertical-align:top;resize:none}
+button,input{line-height:normal}
+button[disabled],input[disabled],.disable{cursor: no-drop; opacity:.7}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;*height:13px;*width:13px}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary{display:block}
+select,input { padding:4px 6px; height:20px; line-height:20px; display:inline-block;box-sizing:content-box; font-family:"Microsoft YaHei"; color:#555;background-color: #fff;border: 0px solid #ccc;border-radius:2px}
+.money-activity img {
+	display:block;
+	width:100%;
+}
+.money-act-cont {
+	width:100%;
+	overflow:hidden;
+}
+.money-act-cont ul {
+	display:block;
+	position:relative;
+}
+.money-act-cont ul li {
+	display:block;
+	float:left;
+}
+.money-act-login,.money-act-register {
+	margin:0 auto;
+	width:65%;
+	}
+.money-act-login p,.money-act-register p {
+	text-align:center;
+	color:#ff2300;
+	letter-spacing:1px;
+	margin:10px 0;
+}
+@media only screen and (max-width:480px ) {
+		.serv-sure li a,.sevice-cont p,.money-act-login p,.money-act-register p {
+	font-size:11px;
+}
+.money-act-btn {
+	font-size:15px;
+}
+.money-act-txt input {
+	font-size:14px;
+}
+.balance-serv-cont,.sendCode {
+	font-size:12px;
+}
+}
+@media only screen and (min-width:480px ) {
+	.serv-sure li a,.sevice-cont p,.balance-serv-cont,.sendCode,.send-code,.money-act-login p,.money-act-register p {
+	font-size:14px;
+}
+.money-act-btn {
+	font-size:20px;
+}
+.money-act-txt input {
+	font-size:16px;
+}
+}
+@media only screen and (min-width:640px ) {
+	.send-code,.money-act-login p,.money-act-register p {
+	font-size:16px;
+}
+.money-act-btn {
+	font-size:25px;
+}
+.sendCode,.money-act-txt input {
+	font-size:20px;
+	letter-spacing:2px;
+}
+}
+.money-act-txt input {
+	 -webkit-appearance : none ;
+	padding:4% 0;
+	text-align:center;
+	border-radius:10px;
+	-webkit-border-radius:10px;
+	display:block;
+	width:100%;
+	box-shadow:-1px -1px 2px #b7b7b7;
+	font-weight:600;
+}
+.money-act-btn {
+	 -webkit-appearance : none ;
+	display:block;
+	width:100%;
+	padding:4% 0;
+	border-radius:35px;
+	-webkit-border-radius:35px;
+	background:#fed301;
+	color:#ff1000;
+	box-shadow:0px 4px 2px #fd8201;
+	font-weight:bold;
+}
+.money-act-code {
+	position:relative;
+}
+.money-act-register .send-code {
+	color:#404040;
+	width:100%;
+}
+.money-act-register .send-code span{display: block;float: left;}
+.money-act-register .send-code i {
+display: block;
+float: right;
+color: #FF3D30;
+}
+.money-act-txt input.input-code {
+	width:58%;
+	text-align:center;
+}
+.sendCode {
+	text-align:center;
+	width:45%;
+	display:block;
+	position:absolute;
+	right:0;
+	top:0;
+	background:#ff3d30;
+	color:#fff;
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+}
+.money-act-txt>i {
+	display:block;
+	width:100%;
+height:20px;
+line-height:20px;
+	color:#FF2300;
+	font-size:10px;
+}
+.balance-serv-tel{display: none;}
+.balance-serv-bg {
+	position:fixed;
+	z-index:222;
+	width:100%;
+	height:100%;
+	top:0;
+	background:rgba(0,0,0,0.5);
+}
+.balance-serv-cont{width:100%;position:fixed;top:40%;z-index: 333;}
+.sevice-cont{width:62%;background:#FFFFFF;margin: 0 auto;border-radius: 10px;padding-top:15px;-webkit-appearance : none;} 
+.sevice-cont p{text-align: center;color:#404040;padding:0 5%}
+.sevice-cont p span{display: block;margin-top:5px;}
+.serv-tel a{color:#48A8F4}
+.serv-sure{width:100%;height:40px;line-height:40px;margin-top:10px;border-top:solid #E5E5E5 1px;text-align: center;color:#FF2300}
+.serv-sure li{float:left;text-align: center;height:40px;line-height: 40px;width:49%;cursor: pointer;}
+.serv-sure li.service-line{width:1px;height:40px;background:#E5E5E5;}
+.serv-sure-btn a{color: #FF3D30;
+display: inline-block;
+width: 100%;
+height: 100%;}
+.kt-cont{color:#898989;line-height: 150%;}
+.money-top-image{position: absolute;top:5%;width: 100%;}
+.money-top-image a{display: block;width:38%;margin: 0 auto;}
+.serv-sure>a{color: #FF3D30;}
+.money-act-cont li{position: relative;}
+.money-act-cont li>img{display: block;width:100%;}
+.money-position-register{width:100%;position: absolute;}
+.money-position-login{width:100%;position: absolute;}
+.logo-img{position: absolute;top:6%;width:100%;z-index: 2222;}
+.logo-img a img{display: block;width:30%;margin:0 auto}
+@media only screen and (max-width:480px ) {
+	.sendCode{height: 38px;line-height: 38px;}
+	.money-position-login{bottom:10%}
+	.money-position-register{bottom:5%}
+	.money-act-register .send-code{font-size: 11px;height:20px;line-height;20px}
+}
+@media only screen and (min-width:480px ) {
+	.sendCode{height: 45px;line-height: 45px;}
+	.money-position-login{bottom:14%}
+	.money-position-register{bottom:11%}
+		.money-act-register .send-code{font-size: 16px;height: 30px;line-height: 30px;}
+}
+
+@media only screen and (min-width:640px ) {
+	.sendCode{height: 53px;line-height: 53px}
+}
+@media only screen and (min-width:678px ) {
+	.sendCode{height: 60px;line-height: 60px;}
+}
+@media only screen and (min-width:1024px ) {
+	.sendCode{height: 73px;line-height: 73px;}
+}
+
+.money-box-shadow{border-radius: 10px;-webkit-border-radius: 10px;box-shadow:-1px -1px 2px #B7B7B7;position: relative;}
+
+.money-box-shadow input{box-shadow:none !important;}

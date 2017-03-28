@@ -1,0 +1,24 @@
+<php>
+    if($type == 'HZT'){
+        $class = '';
+    }else{
+        $class = "class='download-arrows'";
+    }
+    $invest = session('invest');
+</php>
+	<div class="download-top wx-top">
+			<div class="download-con">
+                <div class="download-top wx-top">
+                    <div class="download-con">
+                        <a <?php echo $class; ?>  href="{:url_logs_up('new_weixin_url_logs')}"></a>
+                        <!--<a class="download-arrows"  href="history.go(-1);"></a>-->
+                        <span>{$title}</span>
+                        <!--<a class="download-list" href="#"></a>-->
+                    </div>
+                </div>
+                <!--<a class="download-arrows" href="{:url_logs_up('new_weixin_url_logs')}"></a>-->
+				<!--<a class="download-arrows"  href="history.go(-1);"></a>-->
+				<!--<span>{$title}</span>-->
+				<!--<a class="download-list" href="#"></a>-->
+			</div>
+		</div>

@@ -1,0 +1,400 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>投资</title>
+</head>
+ <link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<body class="bg_grey wx-recharge-body">
+	<div class="download-top wx-top">
+    	<div class="download-con">
+    		<a class="download-arrows"></a>
+    		<span>财富汇</span>
+    	</div>
+    </div>
+	  <!--<include file="Public/top" />-->
+  <div class="rechangeClass" style="font-size: 1.6em;">
+      <!--充值开始-->
+      <form method="post" id="recharge-form" onsubmit="return false;" >
+        <!--<input type="hidden" name="nid" id="bnid" value="{$borrow_id}" />
+        <input type="hidden" name="borrowInterest" id="borrowInterest" value="{$borrowInterest}" />
+        <input type="hidden" name="capitalInterest" id="capitalInterest" value="{$capitalInterest}" />
+        <input type="hidden" name="isUsedCoupon" id="isUsedCoupon" value="{$isUsedCoupon}" />
+        <input type="hidden" name="interest" id="interest" value="{$interest}" />-->
+        <p class="wx-invest-p">可投金额：<i>37,800.00</i>元</p>
+        <p class="wx-invest-p">可用余额：<i>480,80.98</i>元<span ><a href="../User/recharge.html" class="text_blue">充值</a></span></p>
+      	<div class="wx-recharge-top">
+	      	<div class="wx-recharge-form" >
+      		  <label for="amount" class="wx-recharge-label">投资金额</label>
+	          <input type="number" name="amount" id="amount"  class="wx-login-username wx-login-input wxInvestInput" oncopy = "return false" onpaste="return false" placeholder="100.00元起投，100.00元递增"  onkeyup="javascript:this.value.substring(0,1)=='0'?this.value='':this.value=this.value;value=value.replace(/[^\d]/g,'') "   onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))" />
+	          <span class="nameClear icon-nameClear" style="display: none;"></span>
+	         <span class="wx-recharge-yuan">元</span>
+	        </div>
+            <div class="contact-msg">
+                <p class="error-msg" id = "error_text"></p>
+            </div>
+       </div>
+       <div class="wx-recharge-yhq">
+       	<a id="coupontext" href="../Coupon/selectCoupons.html">
+       		使用优惠券
+       		<i class="arrow"></i>
+       	</a>
+       </div>
+       <div>
+           <div class="wx-index-wish" style="display: none;">预期收益<span></span>元 </div>
+        </div>
+        <div class="wx-recharge-bottom">
+          <input class="newRegReg submit text_grey" id = "agree-btn" type="submit" value="立即投资" ></input>
+      	</div>
+      	<div class="wx-recharge-agreement">
+      		<p>轻触“立即投资”按钮，即代表您同意</p>
+      		
+                <a id="jjxx" href="{:U('Weixin/Agreement/platformProtocol')}">《平台协议》</a>&<a id="tzfx" href="{:U('Weixin/Agreement/productAgreement')}">《产品协议》</a>
+      	</div>
+      </form>
+      <!--注册结束-->
+    </div>
+    <div align="center" class="investWarning mt10">市场有风险,投资需谨慎</div>
+    
+    
+    <!--确认输入弹层-->
+		    <div class="invest-copup-2 balance-serv-tel">
+		    	<div class="balance-serv-bg"></div>
+		    	<div class="balance-serv-cont">
+		    		<div class="makeSure-cont sevice-cont">
+		    			<div class="invest-makeSure">提示</div>
+		    			<div class="inv-kaiqi invest-message">
+		    				需要先开启自动投标授权！
+		    			</div>
+		    			<div class="serv-sure">
+		    				<ul>
+		    					<li class="start-moment"><a>立即开启</a></li>
+		    				    <li class="service-line"></li>
+		    				    <li class="serv-cancel-btn">取消</li>
+		    				</ul>
+		    			</div>
+		    		</div>
+		    	</div>
+		    </div>
+</body>
+<include file="Public/footer" />
+<script type="text/javascript" src="../../../Public/weixin/js/wx-invest.js"></script>
+<script type="text/javascript" src="../../../Public/weixin/js/jquery-mvalidate.js"></script>		 
+ <script type="text/javascript" src="../../../Public/weixin/js/wx-clear.js"></script>
+ <script type="text/javascript" src="../../../Public/weixin/js/num.js"></script>
+ <script type="text/javascript" src="../../../Public/weixin/js/changeWidth.js"></script>
+ 
+<script type="text/javascript">
+//数据三位格式化
+$(function(){
+
+
+
+    $("#jjxx").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "{:U('Weixin/Project/depositSession')}",
+            data: "bid="+$("#bnid").val()+"&money="+$('#amount').val()+"&couponId="+$("#coupon").val(),
+            success: function (exdata) {}
+        });
+    });
+
+    $("#tzfx").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "{:U('Weixin/Project/depositSession')}",
+            data: "bid="+$("#bnid").val()+"&money="+$('#amount').val()+"&couponId="+$("#coupon").val(),
+            success: function (exdata) {}
+        });
+    });
+
+    $("#coupontext").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "{:U('Weixin/Project/depositSession')}",
+            data: "bid="+$("#bnid").val()+"&money="+$('#amount').val()+"&couponId="+$("#coupon").val(),
+            success: function (exdata) {}
+        });
+    });
+
+if( $('#amount').val() != ''){
+	$('#agree-btn').attr('disabled', false);
+	$('#agree-btn').css({'background':'#fe7e00'});
+	$("#agree-btn").removeClass('invest-invaild');
+
+    //融通宝显示实际投资金额(金额不为空时,确认投资时取消).
+    var borrowType = "{$project_detail['type']}";
+    if(borrowType == '13'){ //融通宝.
+        $("#actualInvestment").empty();
+        $("#actualInvestment").show();
+        $("#actualInvestment").append("实际投资金额:"+$('#amount').val()+"元");
+    }
+
+    //输入完金额,再取消使用优惠券时.显示预期收益.
+    //if(borrowStyle != "principal" && borrowStyle != "month") {  //等额本金和等额本息不显示预期收益.
+    if(borrowStyle != "principal" ) {  //等额本金不显示预期收益.
+//        var couponId = $("#coupon").val();
+        var couponId = "{$investCouponID}";     //从session取优惠券ID,没有时为空.
+        $.ajax({
+            type: "POST",
+            url: "{:U('Weixin/Coupon/getCouponsAtOnce')}",
+            data: 'money=' + $('#amount').val() + "&borrowNid=" + $("#bnid").val() + "&couponId=" + couponId,
+            success: function (exdata) {
+                interest = $.parseJSON(exdata);
+                if (interest.code == '0') {
+                    if(interest.jumpTender){
+                        setTimeout(reloads, 100);
+                    }
+                    $('#yqsy').empty();
+                    $('#yqsy').show();
+                    $('#yqsy').append('预期收益<span>' + interest.interest + '</span>元');
+                    $("#borrowInterest").empty();
+                    $("#borrowInterest").val(interest.borrowInterest);
+                    $("#capitalInterest").empty();
+                    $("#capitalInterest").val(interest.capitalInterest);
+                    $("#isUsedCoupon").empty();
+                    $("#isUsedCoupon").val(interest.isUsedCoupon);
+                    $("#interest").empty();
+                    $("#interest").val(interest.interest);
+                } else {
+                    $('#yqsy').empty();
+                    $('#yqsy').hide();
+                }
+            }
+        });
+    }
+}else{
+    var couponType = $("#couponType").val();
+    if(couponType == '1' || couponType == '3'){         //代金券或者体验金
+        $('#agree-btn').attr('disabled', false);
+        $('#agree-btn').css({'background':'#fe7e00'});
+        $("#agree-btn").removeClass('invest-invaild');
+    }else {
+	    $('#agree-btn').attr('disabled', true);
+    }
+//	$('#agree-btn').css({'background':'#fe7e00'});
+}
+    //点击选券时,将当前券信息和金额存入session
+    $(".wx-recharge-yhq > a").click(function(){
+        var money = $('#amount').val();
+        var bid = "{$borrow_id}";
+//        var couponId = "{$couponIds}";
+        var couponId = $('#coupon').val();
+
+        $.ajax({
+            type: "POST",
+            url: "{:U('Weixin/Project/couponInfo')}",
+            data: 'bid='+bid+'&couponId='+couponId+'&money='+money,
+            success:function(data){
+                msg = $.parseJSON(data);
+                if(msg.code == 1){
+                    window.location.href = msg.url;
+                }
+            }
+        });
+    });
+
+    $('#amount').keyup(function() {      //动态获取预期收益.
+        var mounts = $('#amount').val();
+
+        //if(borrowStyle == "principal" || borrowStyle == "month"){  //等额本金和等额本息不显示预期收益.
+        if(borrowStyle == "principal"){  //等额本金不显示预期收益.
+            $('#yqsy').empty();
+            $('#yqsy').hide();
+        }
+
+        //融通宝显示实际投资金额(根据输入金额显示实际投资金额).
+        var borrowType = "{$project_detail['type']}";
+        if(borrowType == '13' && $('#amount').val() != ''){ //融通宝.
+            $("#actualInvestment").empty();
+            $("#actualInvestment").show();
+            $("#actualInvestment").append("实际投资金额:"+mounts+"元");
+        }else {
+            $("#actualInvestment").empty();
+            $("#actualInvestment").hide();
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "{:U('Weixin/Coupon/getCouponsAtOnce')}",
+//            data: 'money='+ $('#amount').val() + "&borrowNid="+$("#bnid").val()+"&couponId="+$("#coupon").val(),
+                data: 'money='+ mounts + "&borrowNid="+$("#bnid").val(),
+            success: function(exdata){
+                interest = $.parseJSON(exdata);
+                if(interest.code == '0'){
+                    $("#couponinfo").empty();
+                    $("#couponinfo").append(interest.message);
+                    $("#coupon").empty();
+                    $("#coupon").val(interest.couponId);
+                    $("#couponType").empty();
+                    $("#couponType").val(interest.couponTypeStr);
+                    $("#borrowInterest").empty();
+                    $("#borrowInterest").val(interest.borrowInterest);
+                    $("#capitalInterest").empty();
+                    $("#capitalInterest").val(interest.capitalInterest);
+                    $("#isUsedCoupon").empty();
+                    $("#isUsedCoupon").val(interest.isUsedCoupon);
+                    $("#interest").empty();
+                    $("#interest").val(interest.interest);
+                    //if(borrowStyle != "principal" && borrowStyle != "month") {  //等额本金和等额本息不显示预期收益.
+                    if(borrowStyle != "principal") {  //等额本金不显示预期收益.
+                        $('#yqsy').empty();
+                        $('#yqsy').show();
+                        if (interest.interest > '0'){
+                            $('#yqsy').append('预期收益<span>' + interest.interest + '</span>元');
+                        }
+                    }
+                }else {
+                    $("#couponinfo").empty();
+                    $("#couponinfo").append(interest.message);
+                    $('#yqsy').empty();
+                    $('#yqsy').hide();
+                    $("#borrowInterest").empty();
+                    $("#borrowInterest").val(interest.borrowInterest);
+                    $("#capitalInterest").empty();
+                    $("#capitalInterest").val(interest.capitalInterest);
+                    $("#isUsedCoupon").empty();
+                    $("#isUsedCoupon").val(interest.isUsedCoupon);
+                    $("#interest").empty();
+                    $("#interest").val(interest.interest);
+                }
+            }
+        });
+    });
+    
+
+    $('#agree-btn').click(function() {
+    	var check = $('input[type="checkbox"]');
+        var mount = $('#amount').val();
+        if(mount == ''){
+            var monts = '0.00';
+        }else {
+            var monts = mount;
+        }
+        if(borrowStyle != "principal") {  //等额本金不显示预期收益.
+            $('#yqsy').empty();
+            $('#yqsy').show();
+//            if(mount == '' && $("#isUsedCoupon").val() == 1){         //单独使用代金券
+//                $('#yqsy').append('预期收益<span>' + $("#capitalInterest").val() + '</span>元');
+//            }else {
+                $('#yqsy').append('预期收益<span>' + $("#interest").val() + '</span>元');
+//            }
+        }
+        if($('#coupon').val() != '' && $('#coupon').val() > 0 ){
+            $('#couponInfos').hide();
+            $('#couponInfos').show();
+        }
+        $.ajax({
+            type: "POST",
+            url: "{:U('Weixin/Project/tender')}",
+            data: 'num='+ mount + "&nid="+nid + "&couponId=" + $("#coupon").val()+'&couponType='+$("#couponType").val(),
+
+            success: function(datas){
+                msg = $.parseJSON(datas);
+                if(msg.error == '0'){
+
+                	$('.invest-copup-1').show(200);
+                    $(".invest-message-left > span").empty();
+                    $(".invest-message-left > span").append(monts);
+                    $(".invest-message-right > span").empty();
+                    $(".invest-message-right > span").append($("#borrowInterest").val());
+                    $("#coupon-left").empty();
+                    $("#coupon-left").append($("#couponinfo").text());
+                    $("#coupon-right > span").empty();
+                    $("#coupon-right > span").append($("#capitalInterest").val());
+                }else {
+                    $(this).attr('disabled', true);
+                    $.mvalidateTip(msg.message);
+                }
+            }
+        });
+    });
+//  确认
+     $('.serv-sure-btn').click(function() {
+         var mount = $('#amount').val();
+         $.ajax({
+             type: "POST",
+             url: "{:U('Weixin/Project/tender')}",
+             data: 'num='+ mount + "&nid="+nid + "&couponId=" + $("#coupon").val()+'&couponType='+$("#couponType").val(),
+
+             success: function(datas){
+                 msg = $.parseJSON(datas);
+                 if(msg.error == '0'){
+                  window.location.href = msg.url1;
+                 }else {
+                     $(".invest-copup-1").hide();
+                     $(this).attr('disabled', true);
+                     $.mvalidateTip(msg.message);
+                 }
+             }
+         });
+    });
+    
+    
+	$(".wx-invest-p i").each(function(){
+	$(this).text(formatNum($(this).text()));
+	})
+})
+
+    var aAmount = '{$aAmount}';
+    var nid = $('#bnid').val();
+
+         $('.nameClear').click(function(){
+         	 $('#yqsy').empty();
+             $('#yqsy').hide();
+         });
+        $('#agree-btn').click(function(){
+
+            var availableAmount = '{$availableAmount}';             //可投金额
+            var account_balance = '{$account_balance}';             //用户可用余额
+
+            if( account_balance <= '0.00'){
+                $('#agree-btn').attr('disabled', true);
+                $.mvalidateTip("可用余额不足,请先充值!");
+            }else {
+                if($('#amount').val() == "" ){
+                    $('#yqsy').empty();
+                    $('#yqsy').hide();
+                    $('#agree-btn').attr('disabled', true);
+                }else {
+                    if( Number($('#amount').val()) > Number(availableAmount)){ //判断输入金额是否大于可用余额或输入金额大于可投金额
+                        $('#yqsy').hide();
+                        $('#agree-btn').attr('disabled', true);
+                        $('#error_text').empty();
+                         $.mvalidateTip("投资金额不可大于可投金额!");
+                    }else {
+                        $('#error_text').append();
+                        $('#agree-btn').attr('disabled', false);
+                    }
+                }
+            }
+        });
+	/*点击后自动设置高度*/
+//	$(".rule_nav_cell ").on("click",setHeight)
+//	点击取消重新加载页面
+    $('.serv-cancel-btn').click(function(){
+    	$('.balance-serv-tel').hide(200);
+    	location.reload();
+    });
+
+    function reloads(){
+        location.reload();
+        return false;
+    }
+</script>

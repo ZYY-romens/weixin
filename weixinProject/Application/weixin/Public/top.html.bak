@@ -1,0 +1,55 @@
+<php>
+    if($type == 'HZT'){
+        $class = '';
+    }else{
+        $class = "class='download-arrows'";
+    }
+    $invest = session('invest');
+</php>
+	<div class="download-top wx-top">
+			<div class="download-con">
+                <div class="download-top wx-top">
+                    <div class="download-con">
+
+                        <?php if ($_SERVER["HTTP_REFERER"] == U('Project/index')) { ?>
+                        <a <?php echo $class; ?>  href="<?php echo U('Weixin/Project/index',array('type'=>'HZT')); ?>"></a>
+                        <?php } elseif($_SERVER["HTTP_REFERER"] == U('Project/index',array('type'=>'XSH'))) { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Project/index',array('type'=>'XSH')); ?>"></a>
+                        <?php } elseif($_SERVER["HTTP_REFERER"] == U('Project/index',array('type'=>'ZXH'))) { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Project/index',array('type'=>'ZXH')); ?>"></a>
+                        <?php } elseif($type == 'ZXH') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Index/index'); ?>"></a>
+                        <?php } elseif($type == 'XSH') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Index/index'); ?>"></a>
+                        <?php } elseif($_SERVER["HTTP_REFERER"] == U('Weixin/User/investments')) { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/User/investments'); ?>"></a>
+                        <?php } elseif(ACTION_NAME == 'platform') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/User/more'); ?>"></a>
+                        <?php } elseif(ACTION_NAME == 'platformDetial') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/User/platform'); ?>"></a>
+                        <?php } elseif($_SERVER["HTTP_REFERER"] == U('User/account')) { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/User/account'); ?>"></a>
+                        <?php } elseif($_SERVER["HTTP_REFERER"] == U('Project/invest')) { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Project/invest'); ?>"></a>
+                        <?php } elseif(ACTION_NAME == 'invest') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Project/index'); ?>"></a>
+                        <?php } elseif(ACTION_NAME == 'intermediaryServiceAgreement') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Project/invest', array('bid'=>$invest['bid'])); ?>"></a>
+                        <?php } elseif(ACTION_NAME == 'investmentRiskConfirmation') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Project/invest', array('bid'=>$invest['bid'])); ?>"></a>
+                        <?php } elseif(ACTION_NAME == 'selectCoupons') { ?>
+                        <a <php>echo $class;</php>  href="<?php echo U('Weixin/Project/invest', array('bid'=>$invest['bid'])); ?>"></a>
+                        <?php } else { ?>
+                        <a <php>echo $class;</php>  href="javascript:history.go(-1);"></a>
+                        <?php } ?>
+                        <!--<a class="download-arrows"  href="history.go(-1);"></a>-->
+                        <span>{$title}</span>
+                        <!--<a class="download-list" href="#"></a>-->
+                    </div>
+                </div>
+                <!--<a class="download-arrows" href="{:url_logs_up('new_weixin_url_logs')}"></a>-->
+				<!--<a class="download-arrows"  href="history.go(-1);"></a>-->
+				<!--<span>{$title}</span>-->
+				<!--<a class="download-list" href="#"></a>-->
+			</div>
+		</div>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalabe=0" name="viewport">
+		<link rel="stylesheet" href="../../../Public/Weixin/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../../../Public/Weixin/css/flow.css" />
+		 <link rel="stylesheet" type="text/css" href="../../../Public/Weixin/css/validate.css"/>
+		<title>品友DPS送百兆流量</title>
+	</head>
+	<body style="font-size: 14px;">
+		<div class="fastFlow">
+			<div class="fastFlow-top">
+				<img src="../../../Public/Weixin/images/fastFlow01.jpg" alt="" />
+				<img src="../../../Public/Weixin/images/fastFlow02.jpg" alt="" />
+			</div>
+		    <div class="fastFlow-ban">
+		    	<form action="get" id="demoForm">
+		    		<div class="fastFlow-content">
+		    			<p>
+		    				<label for="mobile"><i class="icon-fastFlow-phone"></i></label>
+		    				<input type="tel" id="mobile" name="phone" maxlength="11"  oninput="if(value.length>11)value=value.slice(0,11)" data-validate="phone" data-describedby="phone-description" placeholder="请输入真实手机号"/>
+		    			</p>
+		    			<p>
+		    				<label for="pwd"><i class="icon-fastFlow-psw"></i></label>
+		    				<input type="password" id="password" name="pwd" name="pwd" oninput="if(value.length>16)value=value.slice(0,16)" data-validate="pwd" data-describedby="pwd-description" placeholder="请设置登录密码"/>
+		    			</p>
+		    			<p class="flow-smallbox">
+		    				<label for=""><i class="icon-fastFlow-img"></i></label>
+		    				<input type="text" id="verify" name="verify"  maxlength="4" placeholder="请输入图形验证码"/>
+		    				<input type="hidden" id="verifys" name="verifys" value="" />
+		    				<span class="flowyz-img">
+		    					<img src="../../../Public/Weixin/images/flowyz_img.jpg" alt="" />
+		    					<a href="#" class="icon-fastFlow-return"></a>
+		    				</span>
+		    			</p>
+		    			<p class="flow-smallbox">
+		    				<label for=""><i class="icon-fastFlow-message"></i></label>
+		    				<input type="number" name="code" id="code" maxlength="6" oninput="if(value.length>6)value=value.slice(0,6)" data-descriptions="phoneyzm" data-conditional="phoneyzm" placeholder="请输入短信验证码"/>
+		    				<span class="flow-getcode">获取验证码</span>
+		    			</p>
+		    			<p class="zhuce-prize">
+		    				<input type="submit" class="zhuceBtn"/ value="注册立享好礼">
+		    			</p>
+		    			<p class="agree">注册即表示已阅读并同意<a href="#">《网站注册协议》</a></p>
+		    		</div>
+		    	</form>
+		        <div class="fastFlow-xszx">
+		        	<img src="../../../Public/Weixin/images/flow_xszx.jpg"/>
+		        </div>
+		    </div>
+		    <div class="fastFlow-bot">
+		    	<div class="flowbot-cont">
+		    		<p class="special-img">
+		    		    <img src="../../../Public/Weixin/images/special_img.jpg" alt="" />
+		    	    </p>
+		    	    <ul>
+		    	    	<li>
+		    	    		<div class="flowLeft">
+		    	    			<h3>资金安全</h3>
+		    	    			<p>十二重安全盾构建严格风控体系全面保障资金安全</p>
+		    	    		</div>
+		    	    		<div class="flowRight">
+		    	    			<img src="../../../Public/Weixin/images/specialicon01.jpg" alt="" />
+		    	    		</div>
+		    	    	</li>
+		    	    	<li>
+		    	    		<div class="flowLeft">
+		    	    			<h3>收益稳健</h3>
+		    	    			<p>7.5%-14%预期年化收益率<br>稳稳幸福轻松得</p>
+		    	    		</div>
+		    	    		<div class="flowRight">
+		    	    			<img src="../../../Public/Weixin/images/specialicon02.jpg" alt="" />
+		    	    		</div>
+		    	    	</li>
+		    	    	<li>
+		    	    		<div class="flowLeft">
+		    	    			<h3>流动性高</h3>
+		    	    			<p>多种期限  自由转让<br>资金灵活  尽在掌握</p>
+		    	    		</div>
+		    	    		<div class="flowRight">
+		    	    			<img src="../../../Public/Weixin/images/specialicon03.jpg" alt="" />
+		    	    		</div>
+		    	    	</li>
+		    	    	<li>
+		    	    		<div class="flowLeft">
+		    	    			<h3>普惠金融</h3>
+		    	    			<p>简单  规范  专业  快捷<br>让金融走进生活普惠万家</p>
+		    	    		</div>
+		    	    		<div class="flowRight">
+		    	    			<img src="../../../Public/Weixin/images/specialicon04.jpg" alt="" />
+		    	    		</div>
+		    	    	</li>
+		    	    </ul>
+		    	    <div class="clear"></div>
+		    	</div>
+		    </div>
+		    <div class="fastFlow-foot">
+		    	<p>
+		    		© 汇盈金服 All rights reserved  惠众商务顾问（北京）有限公司<br>
+                                        京ICP备13050958号  公安安全备案证：37021313127
+		    	</p>
+		    </div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../../../Public/Weixin/js/jquery.min.js"  charset="utf-8"></script> 
+	<script type="text/javascript" src="../../../Public/Weixin/js/jquery-mvalidate.js"></script>
+	<script>
+    	function changeFZ(){
+    		var w = $(window).width();
+    	    setHtmlFz(w/10);
+    	}
+    	function setHtmlFz(fz){
+    		$("html").css("font-size",fz+"px");
+    	}
+    	window.onload = function(){
+    		changeFZ();
+    	}
+    	window.onresize = function(){
+    		changeFZ();
+    	}
+    	</script> 
+	<script type="text/javascript">
+		/*validate */
+	$(function(){
+		
+//		图形验证码
+      	var verifys_url="{:U('Weixin/User/verifys')}"
+		$("#u-captcha2s").click(function(){
+			$("#u-captcha2s").attr("src", verifys_url + '&random=' + (new Date()).getTime());
+		});
+
+		$("#verify").blur(function(){
+			var verify = $('#verify').val();
+			if(verify != '' && verify.length == '4') {
+				$.ajax({
+					type: "POST",
+					url: "{:U('Weixin/User/reg_check_verify')}",
+					data: 'verify=' + verify,
+					success: function (msg) {
+						msg = $.parseJSON(msg);
+						if (msg.error == '2') {
+							$("#u-captcha2s").attr("src", verifys_url + '&random=' + (new Date()).getTime());
+							$.mvalidateTip(msg.data);
+						} else {
+							$("#verifys").attr("value", msg.data);
+						}
+					}
+				});
+			}
+		});
+
+
+
+        $.mvalidateExtend({
+        	//验证手机号 密码  校验码
+            phone:{
+                required : true,   
+                pattern : /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-3,5-9]{1})|(17[0,1,3,5-8]{1})|(18[0-9]{1}))+\d{8})$/,
+                each:function(){
+                   
+                },
+                descriptions:{
+                    required : '<div class="flow-message">请填写手机号</div>',
+                    pattern : '<div class="flow-message">请填写您的真实手机号码</div>',
+                }
+            },
+            pwd:{
+                required : true,   
+                pattern : /^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z]{1}[0-9A-Za-z]{5,16}$/,
+                each:function(){
+                   
+                },
+                descriptions:{
+                    required : '<div class="flow-message">请输入密码</div>',
+                    pattern : '<div class="flow-message">首位必须是字母，6~16 位，必须由数字和字母组成，区分大小写</div>',
+                }
+            }
+        });
+        $("#demoForm").mvalidate({
+            type:1,
+            onKeyup:true,
+            sendForm:true,
+            firstInvalidFocus:false,
+            descriptions: {
+                phoneyzm: {
+                    required: '请输入手机验证码',
+                }
+            },
+            valid:function(event,options){
+                //点击提交按钮时,表单通过验证触发函数
+              $.ajax({
+	            type: "POST",
+	            url: "{:U('Weixin/User/register')}",
+	            data: 'verifys=' + $('#verifys').val()+ '&verify=' + $('#verify').val()+ '&code=' + $('#code').val() + '&phone=' + $('#mobile').val()+ '&recommend=' + '&password=' + $('#password').val(),
+	            success: function(msg) {
+	                msg = $.parseJSON(msg);
+	                 if(msg.error=='1'){
+						 $.mvalidateTip(msg.data);
+					 }else if(msg.error=='2'){
+						 $.mvalidateTip(msg.data);
+	                }else{
+						 if (msg.url) {
+							window.location.href = msg.url;
+						}
+	                }
+	            }
+        	});
+            },
+            invalid:function(event, status, options){
+                //点击提交按钮时,表单未通过验证触发函数
+            },
+            eachField:function(event,status,options){
+                //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+            },
+            eachValidField:function(val){},
+            eachInvalidField:function(event, status, options){},
+        })
+	})
+/*validate end*/
+/*实时提示*/
+function realtimePhone(){
+	console.log(isNaN($(this).val()));
+	if(isNaN($(this).val())){
+		$.mvalidateTip("手机号只能是数字！");
+	}
+}
+var pwdFirstCheck = function(){
+	var _self = $(this);
+	var firstLetter = _self.val().substr(0,1);
+	var str =  /^[A-Za-z]*$/;
+	if(!str.test(firstLetter)){
+		$.mvalidateTip("登录密码的首位只能是字母");
+		_self.val("");
+	}
+}
+$("#mobile").on("input",realtimePhone);
+$("#password").on("input",pwdFirstCheck);
+/*实时提示结束*/
+		
+	$(function(){
+		  //获取注册码的url地址
+			var auth_url="{:U('Weixin/User/getver')}";
+			var  remainingTime = 60;//倒计时时间
+			var timerClock = null;
+	      //发送验证码 校验手机号 手机号校验成功后才能发送手机号
+	      var getver = function(){
+	      		var phoneNum = $("#mobile").val();
+	      		var checkVer = /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-3,5-9]{1})|(17[0,1,3,5-8]{1})|(18[0-9]{1}))+\d{8})$/.test(phoneNum);
+	      		if(checkVer){
+	      			$.ajax({
+		    		   type: "POST",
+		    		   url: auth_url,
+		    		   data: 'mobile='+phoneNum,
+		    		   success: function(msg){
+		    			   if(msg!=""){
+		    			     $.mvalidateTip(msg);
+		    			   }else{
+		    			   		$.mvalidateTip("短信发送成功！");
+		    			   		startTimerClock();
+		    			   }
+		    		   }
+		    		});
+	      		}else{
+	      			$.mvalidateTip("请填写您的真实手机号码！");
+	      		} 
+	            
+	      }
+	      $(".flow-getcode").on("click",getver);
+		  //倒计时
+		  //开始计时器
+		function startTimerClock(){
+			clearTimeout(timerClock);
+			if(remainingTime <= 0){
+			endTimerClock();
+			return;
+			}
+			$(".flow-getcode").text("剩余" + remainingTime + "秒");
+			$(".flow-getcode").innerHTML = remainingTime;
+			timerClock = setTimeout(function(){
+			startTimerClock();
+			remainingTime--;
+			}, 1000);
+		};
+		//结束计时器
+		function endTimerClock(){
+			clearTimeout(timerClock);
+			isTimeing = false;//重置倒计时状态
+			$(".flow-getcode").text("获取验证码");
+			remainingTime = 60;
+		};
+		});
+	</script>
+</html>

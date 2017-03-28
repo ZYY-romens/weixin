@@ -1,0 +1,134 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>重置密码</title>
+</head>
+<body class="bg_grey">
+<!--<include file="Public/top" />-->
+ <div class="download-top wx-top">
+    	<div class="download-con">
+    		<a class="download-arrows"></a>
+    		<span>找回密码</span>
+    	</div>
+    </div>
+<div class="wx-register">
+	<form   method="post" id="form1" onsubmit="return false;">
+		<div class="wx-register-con">
+			<div class="wx-register-txt">
+				<input type="password" id="password" name="pwd"  class="wx-regPsw" placeholder="请设置新的密码，首位必须是字母"  oninput="if(value.length>16)value=value.slice(0,16)" data-validate="pwd" data-describedby="pwd-description"/>
+				<i class="icon-register-visible"></i>
+				<i class="register-hide icon-register-hide" style="display: none;"></i>
+			</div>
+		</div>
+		<input type="submit" class="newRegReg wx-register-btn"  value="确认" />
+	</form>
+</div>
+</body>
+<!--<include file="Public/footer" />-->
+	 <script type="text/javascript" src="../../../Public/weixin/js/jquery.min.js"  charset="utf-8"></script>
+		<script type="text/javascript" src="../../../Public/weixin/js/jquery-mvalidate.js"></script>		 
+<script type="text/javascript">
+	/*validate */
+	$(function(){
+		$.mvalidateExtend({
+			//验证手机号 密码  校验码
+
+			pwd:{
+				required : true,
+				pattern : /^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z]{1}[0-9A-Za-z]{5,16}$/,
+				each:function(){
+
+				},
+				descriptions:{
+					required : '<div class="field-invalidmsg">请输入密码</div>',
+					pattern : '<div class="field-invalidmsg">首位必须是字母，6~16 位，必须由数字和字母组成，区分大小写</div>',
+				}
+			}
+		});
+        
+          $("#form1").mvalidate({
+            type:1,
+            onKeyup:true,
+            sendForm:true,
+            firstInvalidFocus:false,
+            descriptions: {
+                 
+            },
+            valid:function(event,options){
+               var phone="{$phone}";
+              $.ajax({
+	            type: "POST",
+	            url: "{:U('Weixin/User/setnewpass')}",
+	            data: 'new_password=' + $('#password').val(),
+	            success: function(msg) {
+	                msg = $.parseJSON(msg);
+	                 if(msg.error=='1'){
+	                   $.mvalidateTip(msg.data);  
+	                }else{
+	                 if (msg.url) {
+	                   	//$.mvalidateTip("密码修改成功！");
+                        //setTimeout("window.location.href = "+msg.url, 2000);
+	                    window.location.href = msg.url;
+	                }   
+	                }
+	            }
+        	});
+            },
+            invalid:function(event, status, options){
+                //点击提交按钮时,表单未通过验证触发函数
+            },
+            eachField:function(event,status,options){
+                //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+            },
+            eachValidField:function(val){},
+            eachInvalidField:function(event, status, options){},
+        })
+
+		/*实时提示*/
+		var pwdFirstCheck = function(){
+			var _self = $(this);
+			var firstLetter = _self.val().substr(0,1);
+			var str =  /^[A-Za-z]*$/;
+			if(!str.test(firstLetter)){
+				$.mvalidateTip("登录密码的首位只能是字母");
+				_self.val("");
+			}
+		}
+		$("#password").on("input",pwdFirstCheck);
+		/*实时提示结束*/
+
+		//密码显示隐藏
+		$('.wx-register-txt i').on("click",function(){
+			var vis = $('.icon-register-visible');
+			var hide = $('.icon-register-hide');
+			if(vis.is(":visible")){
+				$(".wx-regPsw").prop("type","text");
+				vis.hide();
+				hide.show();
+			}else{
+				$(".wx-regPsw").prop("type","password");
+				vis.show();
+				hide.hide();
+			}
+		});
+		var marginTop = $(window).height()-$(".wx-top").height()-400;
+		$(".wx-register-ban").css("margin-top",marginTop+"px")
+	});
+</script>

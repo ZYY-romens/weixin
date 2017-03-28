@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="../../../Public/Weixin/css/page.css"/>
+		<title>持有详情</title>
+	</head>
+	<body class="bg_grey">
+		<div class="private-detial">
+			<div class="private-detial-item private-detial-item1">
+				<h3>HXD160602205</h3>
+				<div class="get-rate">
+					<p>预计年化收益率 
+						<span>15.00%</span>
+					</p>
+					<p class="p-inline">期限
+						<span>41</span>
+					           天
+					</p>
+				</div>
+			</div>
+			<div class="private-detial-item">
+				<ul>
+					<li>
+						投资本金
+						<span class="orangeColor format-num">222222</span>
+					</li>
+					<li>
+						还款方式
+						<span>按月计息，到期还本付息</span>
+					</li>
+					<li>
+						支付时间
+						<span>2016-06-12 12：12</span>
+					</li>
+				</ul>
+			</div>
+			<div class="private-detial-item">
+				<ul>
+					<!--回款中-->
+					<li>
+						到期预估本息（元）
+						<span class="orangeColor format-num">12222222</span>
+					</li>
+					<li>
+						到期预估收益（元）
+						<span class="format-num">10.24</span>
+					</li>
+					<li>
+						回款金额（元）
+						<span class="format-num">511.23</span>
+					</li>
+					<li>
+						最近应还时间
+						<span>2016-06-12</span>
+					</li>
+					
+					<!--投资中-->
+					<!--<li>
+						到期预估本息（元）
+						<span class="orangeColor format-num">1,010.24</span>
+					</li>
+					<li>
+						到期预估收益（元）
+						<span class="format-num">10.24</span>
+					</li>
+					<li>
+						最近应还时间
+						<span>项目满标后确认</span>
+					</li>-->
+					
+				    <!--已还款-->
+				    <!--<li>
+						回款金额（元）
+						<span class="orangeColor format-num">1,000.00</span>
+					</li>
+					<li>
+						收益（元）
+						<span class="format-num">10.24</span>
+					</li>
+					<li>
+						还款时间
+						<span>2016-06-12</span>
+					</li>-->
+				</ul>
+			</div>
+			<div class="private-detial-item">
+				<ul>
+					<li class="orangeColor">
+						已转让（元）
+						<span class="format-num">3321111</span>
+					</li>
+				</ul>
+			</div>
+			
+		</div>
+	    <div class="private-plan">
+		    	<a href="#">还款计划</a>
+		    	<a href="#">投资协议</a>
+		    </div>
+		    <!--弹层，弹层显示控制pay-coupon为show()-->
+	    <div class="balance-serv-tel pay-coupon">
+		    	<div class="balance-serv-bg"></div>
+		    	<div class="balance-serv-cont">
+		    		<div class="pay-reminder">
+		    			<h3>支付提示</h3>
+		    			<div class="pay-reminder-detial">
+		    				<p>认购本金 
+		    					<span>
+		    						<i>100</i>
+		    						元
+		    					</span>
+		    				</p>
+		    				<p>垫付利息 
+		    					<span>
+		    						<i>1.13</i>
+		    						元
+		    					</span>
+		    				</p>
+		    				<p>折让率 
+		    					<span>
+		    						<i>1.00</i>
+		    						%
+		    					</span>
+		    				</p>
+		    				<p>实际支付 
+		    					<span>
+		    						<i  class="orangeColor format-num">
+		    							101.13
+		    						</i>
+		    					元
+		    					</span>
+		    				</p>
+		    				<p>101.13=100*(1-1.00%)+1.13</p>
+		    			</div>
+		    			<div class="pay-reminder-btn">
+		    				<a href="#">我知道了</a>
+		    			</div>
+		    		</div>
+		    	</div>
+		    </div>
+	</body>
+	 <script type="text/javascript" src="../../../Public/Weixin/js/jquery.min.js"  charset="utf-8"></script> 
+	<script type="text/javascript">
+		var $hHeight =  $(window).height();
+		if($hHeight<=575){
+			$('.private-plan').removeClass('private-plan-change');
+		}else{
+			$('.private-plan').addClass('private-plan-change');
+		}
+		
+		$('.pay-reminder-btn a').click(function(){
+			$('.pay-coupon').hide();
+		});
+		
+//		金额位数大于三位时,以逗号间隔
+	   $(".format-num").each(function(){
+	   	var _self = $(this);
+	   	_self.text(formatNum(_self.text()))
+	   })
+	   
+	   	function formatNum(strNum) {
+			//return strNum;
+	if (strNum.length <= 3) {
+		return strNum;
+	}
+	if (!/^(\+|-)?(\d+)(\.\d+)?$/.test(strNum)) {
+		return strNum;
+	}
+	var a = RegExp.$1, b = RegExp.$2, c = RegExp.$3;
+	var re = new RegExp();
+	re.compile("(\\d)(\\d{3})(,|$)");
+	while (re.test(b)) {
+		b = b.replace(re, "$1,$2$3");
+	}
+	return a + "" + b + "" + c;
+	}
+	</script>
+</html>

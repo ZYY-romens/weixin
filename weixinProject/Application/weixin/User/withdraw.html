@@ -1,0 +1,155 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>提现</title>
+</head>
+<body class="bg_grey wx-recharge-body">
+    <div class="download-top wx-top">
+    	<div class="download-con">
+    		<a class="download-arrows"></a>
+    		<span>提现</span>
+    	</div>
+    </div>
+    <div class="wx-withdraw-main">
+  
+      <!--充值开始-->
+
+      <form method="post" id="regForm"  onsubmit="return false;">
+      	<div class="wx-recharge-top">
+	      	<div class="wx-recharge-card wx-recharge-form" >
+	      		<div class="wx-recharge-card-1"><img src="../../../Public/weixin/images/jh-img.png" alt="银行卡" /></div>
+	      		<div class="wx-recharge-card-2">
+	      			<p>中国建设银行</p>
+	      			<p>6210******************1466</p>
+					<input type="hidden" name="cardnum" value="" />
+	      		</div>
+				<div class="wx-recharge-card-3 ">
+					<img src="../../../Public/weixin/images/recharge-quick.png" class="wx-withdraw-img" alt="快捷卡" width="45"/>
+	            </div>
+	        </div>
+	        <p oncopy = "return false" onpaste="return false" class="wx-withdraw-p ling-height-43 top0">可用余额：123456789元</p>
+	        <!--<p oncopy = "return false" onpaste="return false" class="wx-withdraw-p ling-height-43 top0">可用余额：{$withdrawal_amount}元</p>-->
+	        <div class="wx-recharge-top-2">
+		          <div class="wx-recharge-form ling-height-43" >
+			      	  <label for="" class="wx-recharge-label">提现金额</label>
+			          <input type="number" step="0.01" name="amount" id="amount" class="wxInvestInput" oncopy = "return false" onpaste="return false" class="wx-login-username wx-login-input" oninput="if(value.length>11)value=value.slice(0,11)" />
+			          <span class="nameClear icon-nameClear" style="display: none;"></span>
+			          <span class="ling-height-43">元</span>
+		       	 </div>
+	        </div>
+      	</div>
+        <p class="wx-recharge-fees-p">提现手续费：<span class="wx-recharge-fees">1.00</span>元；实际到账：<span class="wx-recharge-reak">0.00</span>元</p>	
+	     <div class="contact-msg">
+			  <p class="error-msg" id = "error_text"></p>
+		  </div>
+      	<div class="wx-recharge-bottom">
+          <input class="newRegReg submit invest-invaild" id = "agree-btn" type="submit" value="确认提现" disabled="disabled" ></input>
+          <span class="wx-login-jumpPwd fr "><a href="#" class="colorBlue">提现规则</a></span>
+      	</div> 	
+      </form>
+    </div>
+</body>
+<!-- <include file="Public/footer" />-->
+ <script type="text/javascript" src="../../../Public/weixin/js/jquery.min.js"></script>	
+ <script type="text/javascript" src="../../../Public/weixin/js/jquery-mvalidate.js"></script>	
+ <script type="text/javascript" src="../../../Public/weixin/js/wx-clear.js"></script>
+ <script type="text/javascript" src="../../../Public/weixin/js/num.js"></script>
+
+ <script type="text/javascript">
+//	 var all_card = '{$bank_count}';
+//	 var withdrawal_amount = '{$withdrawal_amount}';
+     var withdrawal_amount = '123456789';
+//	 var counter_fee = 1;		//手续费
+//
+//	 if(all_card < 1){		//为绑卡提示
+//		 alert('您尚未绑定银行卡,请先在www.hyjf.com绑定.');
+//		 exit();
+//	 }
+	var success_flag = 0;
+	var regualrNum = /^[0-9]+(\.[0-9]+)?$/; 
+	$("#amount").on("input",dotNum);
+	 $('#amount').keyup(function(){
+	 	var a = $('#amount').val();
+	 	
+	 	if(a==""){
+	 		$("#agree-btn").addClass("invest-invaild");
+	 		$('#agree-btn').attr('disabled', "disabled");
+	 		$('.wx-recharge-reak').text("0.00")
+            success_flag=0;
+		}
+	 	
+	 	if(a.substr(0,1) == '0'||a.substr(0,1) == '.'){
+	 		$('.wx-recharge-reak').empty();
+			$('.wx-recharge-reak').append('0.00');
+	 		$.mvalidateTip("提现金额需大于一元");
+	 		
+	 	}else if(Number(a) <= withdrawal_amount&&regualrNum.test(a)){
+		 	$("#agree-btn").removeClass("invest-invaild");
+			$('#agree-btn').attr('disabled', false);
+			$('#error_text').empty();
+			$('.wx-recharge-reak').empty();
+		    $('.wx-recharge-reak').append(formatNum(Number($('#amount').val() - 1).toFixed(2)));
+			success_flag=1;
+			
+		 }else if(Number(a) > withdrawal_amount){
+		 	    if( !$("#agree-btn").hasClass("invest-invaild")){
+		 	    	 $("#agree-btn").addClass("invest-invaild");
+		 	    	  $('#agree-btn').attr('disabled', "disabled");
+		 	    }
+				 $('#agree-btn').attr('disabled', true);
+				 $('.wx-recharge-reak').empty();
+				 $('.wx-recharge-reak').append('0.00');
+				 $('#amount').empty();
+				 $.mvalidateTip("提现金额不可大于可提现金额!");
+                 success_flag=0;
+		 }
+		 })
+	 
+	 
+$("#agree-btn").click(function(){
+    if(success_flag==1){
+		var a = $('#amount').val();
+		if(Number(a)<=1){
+			$.mvalidateTip("提现金额需大于1元");
+			$("#agree-btn").addClass("invest-invaild");
+	 		$('#agree-btn').attr('disabled', "disabled");
+	 		$('.wx-recharge-reak').text("0.00")
+            success_flag=0;
+		}else{
+			var mount = $('#amount').val();
+	        var wStyle = $("input[name='withdrawStyle']").val();
+			$.ajax({
+			type: "POST",
+			url: "{:U('Weixin/User/withdraw')}",
+			data: 'money='+ mount + "&withdrawStyle="+wStyle+"&cardnum="+$("input[name='cardnum']").val(),
+			success: function(msg){
+				if(msg=="error"){
+					$.mvalidateTip("提现失败");
+				}else{
+					window.location.href = msg;
+				}
+	        }
+   	        });
+		}
+   }
+})
+         
+ </script>
+

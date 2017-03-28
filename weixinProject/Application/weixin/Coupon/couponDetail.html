@@ -1,0 +1,111 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>优惠券详情</title>
+</head>
+<body class="gray_bg">
+<!--<include file="Public/top" />-->
+<div class="ticket-detial">
+        <div class="ticket-detial-top">
+                <img src="../../../Public/Weixin/images/ticket-detial02.jpg"/>
+
+                <span>100</span>元
+                <!--已使用印戳-->
+                <i class="ticket-sign-used"></i>
+                <!--已失效印戳-->
+                <!--<i class="ticket-sign-lose"></i>-->
+        </div>
+        <ul style="padding-top:0">
+            <li>
+                券名称：<span>注册用户专享体验金</span>
+            </li>
+            <li>
+                编&nbsp;&nbsp;&nbsp;号：<span>YHQ160322061564</span>
+            </li>
+            <li>
+                    有效期：<span>2010.03.01-2016.05.31</span>
+            </li>
+            <li class="interest">
+                收益期限：<span>30天</span>
+            	<img class="profitimg-btn" src="../../../Public/Weixin/images/date-help.png" alt="" />
+            	<div  class="profit-formula">
+            		<div class="arrow-top"></div>
+            		<p>收益=券面值*项目年化收益率/365*收益期限</p>
+            	</div>
+            </li>
+        </ul>
+
+        <ul>
+                <li>
+                    项目期限：<span>适用于6个月项目</span>
+                </li>
+                <li>
+                    年化收益：<span>12.00%</span>
+                </li>
+                <li>
+                    还款方式：<span>按天计息，到期还息</span>
+                </li>
+                <li>
+                    适用项目：<span>汇直投/汇消费项目</span>
+                </li>
+            </if>
+        </ul>
+        <ul>
+                        <li>
+                            已得收益：<span>1，214.00</span>
+                        </li>
+                        <!--表格添加位置-->
+                        <div class="table-account-list">
+                            <table border="1" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <th>收益（元）</th>
+                                    <th>状态</th>
+                                    <th>回款日期</th>
+                                </tr>
+                                <tr>
+                                    <td>1，124.00</td>
+                                    <td>已结束</td>
+                                    <td>2016-02-03</td>
+                                </tr>
+                            </table>
+                        </div>
+        <!--<div class="chongzhi-Ban">
+            <div class="no-chongzhi"></div>
+            <p class="no-coupon">
+                获取优惠券详情失败~
+                <br>
+                请联系客服人员.
+            </p>
+        </div>-->
+</div>
+</body>
+<!--<include file="Public/footer" />-->
+<script type="text/javascript" src="../../../Public/Weixin/js/jquery.min.js"  charset="utf-8"></script>
+<script type="text/javascript">
+	$('.profitimg-btn').click(function(){
+		var profor = $('.profit-formula');
+		if(profor.is(":hidden")){
+			$('.profit-formula').fadeIn();
+		}else{
+			$('.profit-formula').fadeOut();
+		}
+		
+	})
+</script>

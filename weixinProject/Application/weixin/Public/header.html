@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> <!--采用utf-8的编码方式，防止出现中文乱码-->
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!--使用X-UA-Compatible标签强制IE8采用低版本方式渲染,IE=edge告诉IE使用最新的引擎渲染网页,即优先使用 IE 最新版本和 Chrome-->
+<!--加入关键字会自动被大型搜索网站自动搜集；可以设定页面格式及刷新等，keywords用来告诉搜索引擎你网页的关键字是什么，description用来告诉搜索引擎你的网站主要内容。-->
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服"><!--添加到主屏后的标题（iOS 6 新增）-->
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>{$title_head}</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"> <!--360 使用Google Chrome Frame-->
+<meta name="format-detection" content="telephone=no"/><!-- 忽略页面中的数字识别为电话-->
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/> <!--设置这个之后通过手机百度搜索打开网页时,百度会为你的网页进行转码-->
+<link rel="stylesheet" type="text/css" href="__CSS__/style.css?v=1.0.0"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/page.css?v=1.0.0"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/main.css?v=1.0.0"/>
+<link rel="stylesheet" type="text/css" href="__CSS__/font-awesome.min.css?v=1.0.0">
+<link rel="stylesheet" type="text/css" href="__CSS__/validate.css?v=1.0.0"/>
+<title>{$title}</title>
+</head>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>  <!--网页中通过js代码将内容分享到朋友圈-->
+<script src="__JS__/jquery.min.js" type="text/javascript" charset="utf-8"></script> <!--用jq时必须引用的是js的一个框架，放在所有引用的封装函数和js，jq代码之前-->
+<script>
+$(function(){
+	   	  
+       var appid = "{$appid}";
+       var timestamp = "{$timestamp}";
+       var nonceStr = "{$nonceStr}";
+       var signature = "{$signature}";
+                
+wx.config({
+    debug: false, 
+    appId: appid, 
+    timestamp: timestamp, 
+    nonceStr: nonceStr, 
+    signature: signature,
+    jsApiList:[    
+        'checkJsApi',  
+       'onMenuShareTimeline', 
+       'onMenuShareAppMessage', 
+       'onMenuShareQQ',  
+       'onMenuShareQZone', 
+] 
+});
+ 
+   
+wx.ready(function(){
+     
+     wx.hideOptionMenu();
+       
+   });
+    
+ });
+              
+</script>

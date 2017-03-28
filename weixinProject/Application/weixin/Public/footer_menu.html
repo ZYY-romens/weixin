@@ -1,0 +1,13 @@
+<footer class="footer-bottom">
+  <php>
+     $controllerName = CONTROLLER_NAME;
+     $actionName = ACTION_NAME;
+    $class = "class='index-current-positon'";
+  </php>
+  <ul>
+    <li <php>if($controllerName == 'Index'){echo $class;}</php>><a href="{:U('Weixin/Index/index')}"><i class="icon-footer1"></i>首页</a></li>
+    <li <php>if($controllerName == 'Project'){echo $class;}</php>><a href="{:U('Weixin/Project/index')}"><i class="icon-footer2"></i>财富汇</a></li>
+    <li <php>if($controllerName == 'User'&& $actionName !='more'){echo $class;}</php>><a href="{:U('Weixin/User/account')}"><i class="icon-footer3"></i>我的账户</a></li>
+    <li <php>if($controllerName == 'User' && $actionName =='more'){echo $class;}</php>><a href="{:U('Weixin/User/more')}"><i class="icon-footer4"></i>更多</a></li>
+  </ul>
+</footer>

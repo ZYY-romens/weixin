@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="../../../Public/Weixin/css/page.css"/>
+		<title>债权转让</title>
+	</head>
+	<body class="bg_grey" style="background: #f3f3f3 !important;">
+ <div class="zhaizhuan">
+      <!--nav ul begin-->
+      <ul class="rule_nav tac bg_white" id="rule_nav">
+        <li id="recover_id_li" class="rule_nav_cell rule_nav_selected" >可转让<!--下划线--><span></span><!--下划线结束--> </li>
+        <li id="now_id_li" class="rule_nav_cell" >已承接</li>
+      </ul>
+      <!--nav ul end-->
+      <!--content begin-->
+      <div class="rule_content gray_bg">
+      	<div class="rule_0">
+        <div>
+          <ul class="attr_scroll" id="recover">
+            <!-- 列表  -->
+            <volist name="invest_r_list" id="vo">
+             <li class="invest-list-li">
+             	<div class="invest-list-top-p">
+             		<p class="invest-list-title">
+                	HXD160602205
+                    </p>
+                    <p class="invest-list-remaintime">剩余<span>21</span>天</p>
+             	</div>
+                
+                <div class="my-invest-list-item">
+                  <div class="invest-list-item-1">
+                    <p class="hyjf-color invest-list-font">12.00<span>%</span></p>
+                    <span>年化收益</span>
+                  </div>
+                  <div class="invest-list-item-2">
+                     <p class="invest-list-font">6<span>个月</span></p>
+                    <span>项目期限</span>
+                  </div>
+                  <div class="invest-list-item-3">
+                    <p class="invest-list-font">1,123,136,00</p>
+                    <span>可转让本金</span>
+                  </div>
+                </div>
+                <div class="clear-both"></div>
+                <div class="zhuanrang-notime">
+                	<a href="#">立即转让</a>
+                </div>
+              </li>
+            </volist>
+            <!-- 列表  -->
+          </ul>
+            
+            <!--<div class="chongzhi-Ban">
+              <div class="no-chongzhi">
+                                        啊哦，暂无可转让项目~
+              </div>
+            </div>-->
+        </div>
+        
+            <div class="record-loading" id="loading_recover">正在加载中... </div>
+            <div class="record-loading" id="nomoreresults_recover">啊哦,没有更多数据了,别刷啦 .</div>
+            
+        </div>
+		<div class="rule_0">
+        <div>
+          <ul  class="attr_scroll" id="now">
+            <!-- 列表  -->
+            <volist name="invest_n_list" id="vo">
+              <li class="invest-list-li">
+               <div class="invest-list-top-p">
+             		<p class="invest-list-title">
+                	HXD160602205
+                	<b class="invest-condition red-condition">还款中</b>
+                	<!--<b class="invest-condition blue-condition">已还款</b>-->
+                    </p>
+                    
+             	</div>
+                <div class="my-invest-list-item">
+                  <div class="invest-list-item-1">
+                    <p class="hyjf-color invest-list-font">1,123,126.00</p>
+                    <span>投资本金</span>
+                  </div>
+                  <div class="invest-list-item-2">
+                     <p class="hyjf-color invest-list-font">1,010.24</p>
+                     <span>代收金额</span>
+                  </div>
+                  <div class="invest-list-item-3">
+                    <p class="invest-list-font">2016-06-14</p>
+                    <span>应还时间</span>
+                  </div>
+                </div>
+                  <div class="clear-both"></div>
+              </li>
+            </volist>
+            <!-- 列表  -->
+          </ul>
+            
+            <!--<div class="chongzhi-Ban">
+	            <div class="no-chongzhi">
+	                                             啊哦，暂无可转让项目~
+	            </div>
+            </div>-->
+         
+        </div>
+            <div class="record-loading" id="loading_now">正在加载中... </div>
+            <div class="record-loading" id="nomoreresults_now">啊哦,没有更多数据了,别刷啦 .</div>
+        </div>
+      </div>
+</div>
+      <!--content end-->
+</body>
+    							
+<script src="../../../Public/Weixin/js/jquery.min.js"></script>
+<script src="../../../Public/Weixin/js/scrollpagination.js"></script>
+<script src="../../../Public/Weixin/js/tabChange.js"></script>
+<script type="text/javascript">
+ 
+     var stopScroll_recover = false;
+     var stopScroll_now = false;
+     
+     //初始化默认第一个按钮
+     
+     	$('#now').attr('start','');
+		$('#now').attr('scrollpagination','disabled');
+         if(stopScroll_recover==false){
+		$('#recover').attr('start','am-active');
+		$('#recover').attr('scrollpagination','enabled');
+		start();
+        }
+        
+	$('#recover_id_li').click(function(){
+		
+		$('#now').attr('start','');
+		$('#now').attr('scrollpagination','disabled');
+         if(stopScroll_recover==false){
+		$('#recover').attr('start','am-active');
+		$('#recover').attr('scrollpagination','enabled');
+		start();
+        }
+	});
+	
+	
+	$('#now_id_li').click(function(){
+		$('#recover').attr('start','');
+		$('#recover').attr('scrollpagination','disabled');
+         if(stopScroll_now==false){
+		$('#now').attr('start','am-active');
+		$('#now').attr('scrollpagination','enabled');
+		start();
+        }
+	});
+	$('#over_id_li').click(function(){
+		
+		$('#recover').attr('start','');
+		$('#recover').attr('scrollpagination','disabled');
+		$('#now').attr('start','');
+		$('#now').attr('scrollpagination','disabled');
+        if(stopScroll_over==false){
+		start();
+        }
+	});
+	
+	
+	
+	
+	
+   function start(){
+   $('.attr_scroll').each(function(){
+			
+			var total_json_page = {$total_json_page};
+			var _this = $(this);
+			 
+			var isstart = $(_this[0]).attr('start');
+			var type = $(_this[0]).attr('id');
+			 
+			if(isstart != 'am-active'){
+				return true;
+			}
+			//alert(isstart);
+			
+				
+			_this.scrollPagination(
+			
+			{	
+			
+				'isstart':isstart, // the url you are fetching the results
+				'contentPage': "{:U('Weixin/User/ajax_recover_investments')}", // the url you are fetching the results
+				'contentData': {'type':type,'totalpage':total_json_page[type]}, // these are the variables you can pass to the request, for example: children().size() to know which page you are
+				'scrollTarget': $(window), // who gonna scroll? in this example, the full window
+				'heightOffset': 0, // it gonna request when scroll is 10 pixels before the page ends
+				'beforeLoad': function(){ // before load function, you can display a preloader div
+
+					$('#loading_'+type).fadeIn('fast');
+				 
+                    $('#'+type).attr('scrollpagination','disabled');
+				},
+				
+				'afterLoad': function(elementsLoaded){ // after loading content, you can use this function to animate your new elements
+					
+					 $('#'+type).attr('scrollpagination','enabled');
+					 $('#loading_'+type).fadeOut('fast');
+					 
+					
+					 	 
+					
+					 var i = 0;
+					 $(elementsLoaded).fadeInWithDelay();
+					 if ($(this).children().size() > 0){ // if more than 100 results already loaded, then stop pagination (only for testing)
+					 
+						$('#nomoreresults_'+type).fadeIn();
+						$(this).stopScrollPagination();
+					 }
+					 
+					if(elementsLoaded.length==0){
+					   if(type=='recover'){
+						stopScroll_recover = true; 
+                        }else if(type=='now'){
+                            stopScroll_now = true; 
+                        }
+						$('#nomoreresults_'+type).fadeIn('slow');
+						$('#'+type).stopScrollPagination();
+						//$('#nomoreresults_'+type).fadeOut();
+					};
+				}
+			});
+		});
+   }
+	// code for fade in element by element
+	$.fn.fadeInWithDelay = function() {
+		var delay = 0;
+		return this.each(function() {
+			$(this).delay(delay).animate({
+				opacity: 1
+			}, 200);
+			delay += 100;
+		});
+	};
+	
+ $('.rule_nav_cell').click(function(){
+		     	var len1=$(this).index();
+		     	var grays = $(".gray_bg>div:eq("+len1+")");
+		     	var pp = grays.height();
+		     	var kk = grays.find('.attr_scroll').children('li').length;
+		     	$html = "<div class='no-more'>已加载全部信息</div>";
+		     	if(kk>=1 && kk<10){
+		     		grays.find('.no-more').remove();
+		     		grays.append($html);
+		     		return false;
+		     	}
+		     	$('html').height(pp+95);
+		     });
+ </script>
+ </html>

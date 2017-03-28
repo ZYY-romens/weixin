@@ -1,0 +1,147 @@
+ <!--<include file="Public/header" />-->
+ <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>账户充值</title>
+</head>
+ <link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/common.css">
+  <link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+  <style type="text/css">
+  	.wx-recharge-card-3 img{
+  		width:45px;
+  	}
+  </style>
+<body class="bg_grey wx-recharge-body">
+<!--	<include file="Public/top" />-->
+	<div class="download-top wx-top">
+    	<div class="download-con">
+    		<a class="download-arrows"></a>
+    		<span>充值</span>
+    	</div>
+    </div>
+  <div>
+  
+      <!--充值开始-->
+      <form   method="post" id="recharge-form"  onsubmit="return false;">
+        <!--未绑定快捷充值卡，不显示银行卡列表，直接输入金额 跳转汇付进行绑卡充值-->
+      	<div class="wx-recharge-top">
+	      	<div class="wx-recharge-form wx-recharge-card" >
+	      		<div class="wx-recharge-card-1"><img src="../../../Public/weixin/images/jh-img.png" alt="银行卡" /></div>
+	      		<div class="wx-recharge-card-2">
+	      			<p>中国建设银行</p>
+	      			<p>6210**********3456</p>
+	      		</div>
+	      		<div class="wx-recharge-card-3"><img src="../../../Public/weixin/images/recharge-quick.png" alt="快捷卡" width="45"/></div>
+	        </div>
+        </div>
+      	<div class="wx-recharge-top">
+	      	<div class="wx-recharge-form" >
+      		  <label for="" class="wx-recharge-label">充值金额</label>
+	          <input type="number" name="amount" id="amount" maxlength="7" oninput="if(value.length>7)value=value.slice(0,7)"  class="wx-login-username wx-login-input wxInvestInput" onkeyup="javascript:this.value.substring(0,1)=='0'?this.value='':this.value=this.value;value=value.replace(/[^\d]/g,'') "   onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))"/>
+	          <span class="nameClear icon-nameClear" style="display: none;"></span>
+	          <span class="wx-recharge-yuan">元</span>
+	        </div>
+        </div>
+        <p class="wx-recharge-fees-p">充值手续费：<span class="wx-recharge-fees">0.00</span>元；实际到账：<span class="wx-recharge-reak">0.00</span>元</p>
+        <div class="wx-recharge-bottom">
+          <input class="newRegReg submit invest-invaild" id = "agree-btn" type="submit" value="确认充值" disabled="disabled"></input>
+          <span class="wx-login-jumpPwd fr "><a href="#" class="colorBlue">充值规则</a></span>
+      	</div>
+      </form>
+      <!--注册结束-->
+    </div>
+ 
+</body>
+ <!--<include file="Public/footer" />-->
+<script type="text/javascript" src="../../../Public/weiin/js/jquery.min.js"></script>	
+<script type="text/javascript" src="../../../Public/weixin/js/jquery-mvalidate.js"></script>
+<script type="text/javascript" src="../../../Public/weixin/js//wx-clear.js"></script>
+<script type="text/javascript" src="../../../Public/weixin/js//num.js"></script>
+<script type="text/javascript" src="../../../Public/weixin/js//wx-invest.js"></script>
+ <script type="text/javascript">
+ function fomatFloat(src,pos){      
+             return Math.round(src*Math.pow(10, pos))/Math.pow(10, pos);             
+
+}   
+ $(function(){
+    
+    var recharge_type = "{$recharge_type}";
+ 	setTimeout(function(){
+ 		document.getElementById("recharge-form").reset();
+ 	},0);
+ 	
+ 	$('.nameClear').click(function(){
+ 	   $('.wx-recharge-fees').empty();
+ 	 $('.wx-recharge-reak').empty();
+ });
+ 	/*var dotDel = function(){
+ 		var _selfVal = $(this).val();
+ 		var numRegular = /[^0-9]+/;
+ 		var length = _selfVal.length;
+ 		if(numRegular.test(_selfVal)){
+ 			$(this).val(_selfVal.slice(0,length-1))
+ 		}
+ 	}
+ 	$("#amount").on("input",dotDel);*/
+    
+     $('#amount').keyup(function(){
+        
+        if(recharge_type!='1'){
+	        var inputMoney = $('#amount').val();
+	        $('.wx-recharge-reak').empty();
+	        $('.wx-recharge-reak').append(formatNum(inputMoney));
+        }else{
+            var inputMoney = $('#amount').val();
+            var fee = fomatFloat(parseFloat(inputMoney)*0.0011,2);
+            var money = parseFloat(inputMoney)-parseFloat(fee);
+            var money1 = fomatFloat(money,2);
+	        $('.wx-recharge-fees').empty();
+	        $('.wx-recharge-fees').append(fee);
+	        $('.wx-recharge-reak').empty();
+	        $('.wx-recharge-reak').append(money1);
+        }
+    }); 
+    
+    	$('#agree-btn').click(function () {
+             if ($('#amount').val() == "") {
+             	$.mvalidateTip("请输入充值金额");
+                 return false;
+             } else if ($('#amount').val() <= 0) {
+             	$.mvalidateTip("请输入正确的充值金额");
+                 return false;
+             } else {
+                 var bankCode = "{$quit_bank_list.bank}";
+                 var bankCardId = "{$quit_bank_list.account}";
+                 var money = $("#amount").val();
+				
+                 $.ajax({
+                     type: "POST",
+                     url: "{:U('Weixin/User/quick_recharge')}",
+                     dataType: "html",
+                     data: 'bankCode=' + bankCode + '&bankCardId=' + bankCardId + '&amount=' + money+'&recharge_type='+recharge_type,
+                     success: function (msg) {
+                         url = $.parseJSON(msg);
+                         window.location.href = url;
+                     }
+                 });
+             }
+    });    
+ });
+ 
+ </script>

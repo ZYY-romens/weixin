@@ -1,0 +1,180 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>登录</title>
+</head>
+ <style>
+ 	html{height: 100%;}
+ 	.wx-login-back{background-size: 100% 40%;}
+ </style>
+<body class="wx-login font-14">
+  <!-- 错误提示 -->
+  <div class="evaluationPopMain">
+      <div class="evaluationPopBg"></div>
+      <div class="evaluationPop">
+        <p></p>
+        <div>我知道了</div>
+      </div>
+    </div>
+  <div>
+      <!--注册开始-->
+      <a class="download-arrows wx-login-back" href="javascript:history.go(-1);"></a>
+      <form action="wxnewtest.hyjf.com/" method="post"   data-href="{:U/Weixin/User/login}" id="form1"  onsubmit="return false;" >
+      <div class="wx-login-form" >
+          <div class="wx-login-cont">
+          	<div class="wx-login-contant">
+          		<input type="text" id="user_info"  name="user_info" class="wx-login-username wx-login-input"   placeholder="手机号/用户名" data-validate="username" data-describedby="username-description"/>
+              <span class="icon-nameClear nameClear" style="display: none;"></span>
+              <div class="wx-login-subline"></div>
+          	</div>
+            <div class="wx-login-contant">
+            	<input type="password" id="user_password"   name="user_password"  class="wx-login-pwd wx-login-input" placeholder="登录密码" data-validate="pwd" data-describedby="pwd-description"/>
+              <span class="icon-nameClear nameClear" style="display: none;"></span>
+              <div class="wx-login-subline"></div>
+            </div>
+         </div>
+          <input class="newRegReg submit" id="p-loginForm-submit" type="submit" value="登录"></input>
+          <span class="wx-login-jumpReg fl"><a href="../User/register.html">快速注册</a></span>
+        <span class="wx-login-jumpPwd fr"><a href="../User/retrievePassword.html">忘记密码</a></span>
+      </div>
+      </form>
+      <!--注册结束-->
+    </div>
+    <!--<include file="Public/footer" />-->
+        <script type="text/javascript" src="../../../Public/weixin/js/jquery.min.js"></script>	
+    <script type="text/javascript" src="../../../Public/Weixin/js/jquery-mvalidate.js"></script>	
+ <script type="text/javascript" >
+ /*validate */
+	$(function(){
+		//background size
+		/*var $height = $(window).height();
+		$(".wx-login").css("background-size","auto "+$height+"px");*/
+        $.mvalidateExtend({
+        	//验证手机号 密码  校验码
+            username:{
+                required : true,   
+                descriptions:{
+                    required : '<div class="field-invalidmsg">请填写原手机号或用户名</div>',
+                }
+            },
+            pwd:{
+                required : true,   
+                descriptions:{
+                    required : '<div class="field-invalidmsg">请输入密码</div>',
+                }
+            }
+        });
+        $("#form1").mvalidate({
+            type:1,
+            onKeyup:true,
+            sendForm:true,
+            firstInvalidFocus:false,
+            conditional: {
+                username: function() {
+                    return $("#user_info").val() == 1;//短信验证码
+                },
+                pwd: function() {
+                    return $("#user_password").val() == 1;//短信验证码
+                }
+            },
+             descriptions: {
+                username: {
+                    conditional: '账号或密码错误'
+                },
+                pwd: {
+                    conditional: '账号或密码错误'
+                }
+            },
+            valid:function(event,options){
+                //点击提交按钮时,表单通过验证触发函数
+                var phone = $("#user_info").val();
+		phone = $.trim(phone);
+		var pas = $("#user_password").val();
+        var url = $('#regForm').attr("data-href");
+	    $.ajax({
+		   type: "POST",
+		   url: url,
+		   data: 'user_info='+phone+'&password='+pas,
+		   success: function(msg){
+			   msg = $.parseJSON(msg)
+			   if(msg.url){
+				 //showErrorMessage("#p-loginForm  .j-error-tip", msg.data);
+                 window.location.href = msg.url;
+			   }else{
+					$.mvalidateTip(msg.data);
+					return false;
+			   }
+		   }
+		});
+        return false;
+            },
+            invalid:function(event, status, options){
+                //点击提交按钮时,表单未通过验证触发函数
+            },
+            eachField:function(event,status,options){
+                //点击提交按钮时,表单每个输入域触发这个函数 this 执向当前表单输入域，是jquery对象
+            },
+            eachValidField:function(val){},
+            eachInvalidField:function(event, status, options){},
+        })
+	})
+/*validate end*/
+$(function(){
+   $("#p-loginForm-submit").click(function (_e) {
+	 
+		/*var phone = $("#user_info").val();
+		phone = $.trim(phone);
+		var pas = $("#user_password").val();
+        var url = $('#regForm').attr("data-href");
+	    $.ajax({
+		   type: "POST",
+		   url: url,
+		   data: 'user_info='+phone+'&password='+pas,
+		   success: function(msg){
+			   msg = $.parseJSON(msg)
+			   if(msg.url){
+				 //showErrorMessage("#p-loginForm  .j-error-tip", msg.data);
+                 window.location.href = msg.url;
+			   }else{
+					alert(msg.data);
+					return false;
+			   }
+		   }
+		});
+        return false;*/
+    });
+//  点击叉号清空输入框
+    $('.wx-login-input').focus(function(){
+        	$(this).siblings('span').show().parent('div').siblings().find('span').hide();
+	  });
+	  
+		$('.nameClear').on("click",function(){
+			$(this).siblings('input').val("");
+		});
+  	$(document).click(function(event){
+		if(!$(event.target).hasClass("wx-login-input")){
+			setTimeout(function(){
+				$(this).siblings(".nameClear:visible").hide();
+			},0)
+		}
+	})
+  });
+ </script>
+</body>

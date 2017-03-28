@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+		<title>风险测评</title>
+	</head>
+	<body class="eavBody">
+	<input type="hidden" name="platform" id="platform" value= "${platform}"/>
+	<input type="hidden" name="sign" id="sign" value= "${sign}"/>
+	<input type="hidden" name="behaviorId" id="behaviorId" value= ""/>
+		<div class="evaluationPopMain">
+			<div class="evaluationPopBg"></div>
+			<div class="evaluationPop">
+				<p></p>
+				<div>我知道了</div>
+			</div>
+		</div>
+	<input type="hidden" name="sendResult" id="sendResult"/>
+		<div class="download-top wx-top">
+	    	<div class="download-con">
+	    		<a class="download-arrows"></a>
+	    		<span>风险测评</span>
+	    	</div>
+	    </div>
+		<div class="container specialFont response">
+			<div class="eva-index">
+				<div class="eva-index-pic">
+					<img src="../../../Public/weixin/img/evaPic.png"/>
+				</div>
+				<p class="eva-index-text">通过问题的调研，我们会给您提供最专业的金融服务</p>
+				<p class="eva-index-text">首次完成测评，可以获得一张加息券</p>
+				<div class="process">
+					<div class="process_line btn_bg_color askStartIndex"><a href="#" >开始测评</a></div>
+				</div>
+			</div>
+			<div class="eva-questions hide" >
+				<!--当前位置 圆-->
+				<div class="askPos" >
+					<div class="findPos askCurPos" id="askPos" name="askPos">
+						<div class="askPosNo ">1</div>
+						<span></span>
+					</div>
+					<div class="findPos">
+						<div class="askPosNo">2</div>
+						<span></span>
+					</div>
+					<div class="findPos">
+						<div class="askPosNo">3</div>
+					</div>
+				</div>
+				<!--问题开始-->
+				<div class="eva-question">
+					<div class="queryDiv" >
+						<form action="" class="eva-form">
+							<!--问题列表1开始-->
+							<div class="queryItem queryItemFirst" >
+								<div class="queryCell">
+									<p>1、您现在的年龄是：</p>
+									<input type="radio" />
+									<label>25岁（含25）以下</label>
+									<br />
+									<input type="radio"/>
+									<label >26-45岁</label>
+									<br />
+									<input type="radio"/>
+									<label >46-65岁</label>
+									<br />
+									<input type="radio" />
+									<label >高于65岁</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>2、您现阶段所在单位的工作性质是：</p>
+									<input type="radio" />
+									<label >国有、上市、外资企业</label>
+									<br />
+									<input type="radio" />
+									<label >民营企业或个体工商户</label>
+									<br />
+									<input type="radio" />
+									<label >退休</label>
+									<br />
+									<input type="radio" />
+									<label >自由职业</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>3、您的家庭年收入：</p>
+									<input type="radio" />
+									<label >小于5万元</label>
+									<br />
+									<input type="radio" />
+									<label >5-10万元</label>
+									<br />
+									<input type="radio" />
+									<label >10-30万元</label>
+									<br />
+									<input type="radio" />
+									<label >30万元以上</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>4、以下哪项最能说明您的投资经验？</p>
+									<input type="radio" />
+									<label >除存款外，我几乎不投资其他金融产品</label>
+									<br />
+									<input type="radio" />
+									<label >大部分投资于存款，较少投资于股票、基金、P2P理财产品等</label>
+									<br />
+									<input type="radio" />
+									<label >资金50%用于存款，50%用于投资</label>
+									<br />
+									<input type="radio" />
+									<label >大部分投资于股票、基金、P2P理财产品等，较少投资于存款</label>
+									<br />
+								</div>
+								<div class="askBotDiv">
+										<div class="askNext askFirstNext"><a href="#askPos">下一页</a></div>
+									</div>
+							</div>
+							<!--问题列表2开始-->
+							<div class="queryItem hide">
+								<div class="queryCell">
+									<p>5、您计划的投资期限是多久？</p>
+									<input type="radio" />
+									<label >6个月以下</label>
+									<br />
+									<input type="radio" />
+									<label >7个月-1年</label>
+									<br />
+									<input type="radio" />
+									<label >1-3年</label>
+									<br />
+									<input type="radio" />
+									<label >3年以上</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>6、您的投资目的是？</p>
+									<input type="radio" />
+									<label >资产保值</label>
+									<br />
+									<input type="radio" />
+									<label >资产稳健增长</label>
+									<br />
+									<input type="radio" />
+									<label >资产迅速增长</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>7、以下哪项描述最符合您的投资态度？</p>
+									<input type="radio" />
+									<label >厌恶风险，不希望本金损失，希望获得稳定回报</label>
+									<br />
+									<input type="radio"/>
+									<label >保守投资，不希望本金损失，愿意承担一定幅度的收益波动</label>
+									<br />
+									<input type="radio" >
+									<label >寻求资金的较高收益和成长性，愿意为此承担有限本金损失</label>
+									<br />
+									<input type="radio" />
+									<label >希望赚取高回报，愿意为此承担较大本金损失</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>8、以下情况，您会选择哪一种？</p>
+									<input type="radio" />
+									<label >有100%的机会赢取1000元现金</label>
+									<br />
+									<input type="radio" />
+									<label >有50%的机会赢取5万元现金</label>
+									<br />
+									<input type="radio" />
+									<label >有25%的机会赢取50万元现金</label>
+									<br />
+									<input type="radio" />
+									<label >有10%的机会赢取100万元现金</label>
+									<br />
+								</div>
+								
+								<div class="askJump askBotDiv">
+									<div class="askFor fl"><a href="#askPos">上一页</a></div><div class="askNext fr"><a href="#askPos">下一页</a></div>
+								</div>
+							</div>
+							<!--问题列表3开始-->
+							<div class="queryItem hide">
+								<div class="queryCell">
+									<p>9、您计划的投资期限是多久？</p>
+									<input type="radio" />
+									<label >6个月以下</label>
+									<br />
+									<input type="radio" />
+									<label >7个月-1年</label>
+									<br />
+									<input type="radio" />
+									<label >1-3年</label>
+									<br />
+									<input type="radio" />
+									<label >3年以上</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>10、您的投资目的是？</p>
+									<input type="radio" />
+									<label >资产保值</label>
+									<br />
+									<input type="radio" />
+									<label >资产稳健增长</label>
+									<br />
+									<input type="radio" />
+									<label >资产迅速增长</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>11、以下哪项描述最符合您的投资态度？</p>
+									<input type="radio" />
+									<label >厌恶风险，不希望本金损失，希望获得稳定回报</label>
+									<br />
+									<input type="radio"/>
+									<label >保守投资，不希望本金损失，愿意承担一定幅度的收益波动</label>
+									<br />
+									<input type="radio" >
+									<label >寻求资金的较高收益和成长性，愿意为此承担有限本金损失</label>
+									<br />
+									<input type="radio" />
+									<label >希望赚取高回报，愿意为此承担较大本金损失</label>
+									<br />
+								</div>
+								<div class="queryCell">
+									<p>12、以下情况，您会选择哪一种？</p>
+									<input type="radio" />
+									<label >有100%的机会赢取1000元现金</label>
+									<br />
+									<input type="radio" />
+									<label >有50%的机会赢取5万元现金</label>
+									<br />
+									<input type="radio" />
+									<label >有25%的机会赢取50万元现金</label>
+									<br />
+									<input type="radio" />
+									<label >有10%的机会赢取100万元现金</label>
+									<br />
+								</div>
+								<div class="askJump askBotDiv">
+									<div class="askFor fl"><a href="#askPos">上一页</a></div><div class="askNext fr askFin">完成</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="eva-outcome hide">
+				<p class="eva-outcome-text">你的测评结果为:</p>
+				<div class="eva-outcome-type">
+					保守型
+				</div>
+				<p class="eva-index-text">顾问建议：您的风险承受能力较低，建议在专业指导下投资风险较小的产品</p>
+				<p class="eva-coupon-text"></p>
+				<div class="process">
+					<div class="process_line btn_bg_color askStartIndex"><a href="#" >重新测评</a></div>
+					<div class="process_line btn_bg_color"><a href="hyjf://jumpInvest/?" >马上赚钱</a></div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../../Public/weixin/js/jquery.min.js"  charset="utf-8"></script>
+				<script>
+		window.onload=function(){
+	 		$.ajax({
+					type:"post",
+			 		url:" ",
+					data:"sign=${sign}&platform=${platform}",
+					async:false,
+					datatype:"json",
+					success:function(data){
+						var data=JSON.parse(data);
+						//开始测评或者再测一次
+						/* $("#behaviorId").val(data.behaviorIds); */
+						if(data.ifEvaluation==0){
+							$(".eva-index").show();
+							$(".eva-outcome").hide();
+						}else{
+							$(".eva-index").hide();
+							$(".eva-outcome").show();
+							$(".eva-outcome-type").text(data.userEvalationResult.type);	
+							$(".eva-index-text").text(data.userEvalationResult.summary);	
+						}
+						
+                        //动态加载测试问题
+						var queryItems = $(".queryItem");
+						for(var j=0;j<$(".queryItem").length;j++){//循环 queryItem 问题分页
+							var obj;
+							for(var i=j*4;i<j*4+4;i++){//循环分页的问题,每页4个问题
+									var str="";
+									var strCell="";//问题内容+标题
+									var strInput = "";//问题内容
+									var answersStr= ["D", "C", "B","A"]; 
+									for(var k=0;k<data.questionList[i].answers.length;k++){
+										var quesId_Id = data.questionList[i].answers[k].questionId+"_"+data.questionList[i].answers[k].id;
+										var quesId_Index = data.questionList[i].answers[k].questionId+"_"+answersStr[k];
+										var quesId = data.questionList[i].answers[k].questionId;
+										var quesAnswer = data.questionList[i].answers[k].answer;
+										strInput = '<input type="radio" name="'+'ask'+quesId+'" id="'+quesId_Id+'" value="'+quesId_Id+'" data-answer="'+quesId_Index+'"/><label for="'+quesId_Id+'">'+quesAnswer+'</label><br />'+strInput;										
+									}
+									strCell = '<div class="queryCell"><p>'+data.questionList[i].question+"</p>"+strInput+'</div>'+strCell;
+									var j=parseInt(j);
+									$(".queryItem").eq(j).find(".askBotDiv").before(strCell);//添加queryCell
+									obj=data.questionList[i];
+							}
+						}
+					} 		
+			}) 	
+
+			//发送答案			
+			$(".askFin").on("click",function(){
+				var $items = $(".queryCell");
+				var userAnswer="";
+				var $cellSelected = $(".cellSelected");
+				for(var i=0;i<$items.length;i++){
+					var userAnswer = $items.eq(i).find("input:checked").val()+","+userAnswer;
+				}
+				//如果打完 发送答案
+				if($cellSelected.length === $items.length){
+					 $.ajax({
+							type:"post",
+					 		url:"",
+							data:{"userAnswer":userAnswer,"sign":"${sign}","behaviorId":$("#behaviorId").val(),"platform":$("#platform").val()},
+							datatype:"json",
+							success:function(data){
+								data=JSON.parse(data);
+								$(".eva-outcome-type").text(data.userEvalationResult.typeString);	
+								$(".eva-index-text").text(data.userEvalationResult.summary);
+								if(data.sendResult!=null){
+									var html = "<p>"+data.sendResult+"</p>"
+									$(".evaluationPopMain").show();
+									$(".evaluationPop div").before(html)
+									$(".evaluationPop div").on("click",function(){
+										location.reload();
+									})
+								}else{
+									location.reload();
+								}
+							} 		
+					});
+				}
+			})
+		
+			var $askNo = $(".findPos");
+			var time = 300;
+			//点击下一步上一步
+			$(".askFor").on("click",function(){
+				var $parDiv1 = $(this).parent().parent();
+				var $index1 = $parDiv1.index();
+				$parDiv1.hide(time).prev().show(time).siblings().removeClass("show").addClass("hide");
+				//当前位置显示
+				$askNo.eq($index1-1).addClass("askCurPos");
+				$askNo.eq($index1).removeClass("askCurPos");
+			})
+			//增加选中颜色
+			$(".queryItem label").on("click",function(){
+				$(this).addClass("cellSelected").siblings().removeClass("cellSelected");
+				var $parDiv = $(this).parent().parent();//queryItem
+				var $parCell = $(this).parent();//queryCell
+				var $next = $parDiv.find(".askNext");
+				var checkSelectedLength = $parDiv.find(".cellSelected").length;
+				var cellLength = $parDiv.find(".queryCell").length;
+				//判断如果题目全选 可以点击下一页
+				if(checkSelectedLength == cellLength){
+					$next.addClass("askNextAct");
+					$next.on("click",function(){
+						$index = $parDiv.index();
+						$parDiv.hide(time).next().show(time).siblings().removeClass("show").addClass("hide");
+						$askNo.eq($index+1).addClass("askCurPos");//当前位置显示
+						window.scrollTo(0,0)
+						if($index===2){
+							$(".eva-questions").hide();
+							$(".eva-outcome").show();
+						}
+					})			
+				}
+		
+				
+				var behavior = $(this).prev().data("answer");
+				$.ajax({
+					type:"post",
+				 		url:"/hyjf-app/financialAdvisor/userEvaluationBehavior",
+						data:{"behavior":behavior,"behaviorId":$("#behaviorId").val()},
+						async:true,
+						datatype:"json"
+				})
+				
+			})
+			//开始测评/重新测评
+			$(".askStartIndex").on("click",function(){
+				$(this).parent().parent().hide();
+				$(".eva-questions").show(time);
+				$('.queryItemFirst').show(time)
+			})
+			
+			//点击开始测评 重新测评获取behaviorId
+			$(".askStartIndex").on("click",function(){
+				$.ajax({
+					type:"post",
+				 		url:"",
+						data:{"sign":$("#sign").val(),"platform":$("#platform").val()},
+						async:true,
+						datatype:"json",
+						success:function(data){
+							var data=JSON.parse(data);
+							var $behaviorId = data.behaviorId;
+							$("#behaviorId").val($behaviorId);
+						} 
+				})
+			})
+		}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,111 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title>我的资料</title>
+</head>
+	<body class="wx-bg-gray">
+       <!--<include file="Public/top" />-->
+       <div class="download-top wx-top">
+    	<div class="download-con">
+    		<a class="download-arrows"></a>
+    		<span>我的资料</span>
+    	</div>
+    </div>
+		<div class="balance-ban">
+			<div class="balance-ban-cont">
+				<ul>
+					<li class="personData-photo">
+						头像
+						<i class="buser-img">
+                        	<img src="../../../Public/weixin/images/appIconImg.jpg" alt="" />
+						</i>
+					</li>
+					<li>
+						昵称
+						<i >nono</i>
+					</li>
+					<li>
+						用户名
+						<i>hyjf15711111112</i>
+					</li>
+					<li>
+						手机号
+						<i>15711111112</i>
+					</li>
+					<li>
+						紧急联系人
+						<i>小明</i>
+					</li>
+				</ul>
+			</div>
+			<div class="balance-ban-cont">
+				<ul>
+					<li  class="personData-ewm">
+							二维码
+							<i>
+								<img src="../../../Public/weixin/images/person-ewm.png" alt="" />
+							</i>
+					</li>
+					<li>
+							邀请码
+							<i>22301188</i>
+					</li>
+				</ul>
+			</div>
+            <!--情况2-->
+			 <div class="balance-ban-cont">
+				<ul>
+					<li>
+							汇付天下账号
+							<i>zsc_1476674581293522301188</i>
+					</li>
+					<li>
+							真实姓名
+							<i>南柱赫</i>
+					</li>
+					<li>
+							身份证号
+							<i>370202***********1112</i>
+					</li>
+				</ul>
+			</div> 
+            </if>
+		</div>
+		<div class="wx-ewmHide">
+			<div class="wx-ewmBg"></div>
+			<div class="wx-ewmCont">
+				<img src="" alt="" />
+			</div>
+		</div>
+         <!--<include file="Public/footer" />-->
+	 <script type="text/javascript" src="../../../Public/weixin/js/jquery.min.js"  charset="utf-8"></script>
+	 	 <script type="text/javascript" src="../../../Public/weixin/js/changeWidth.js"  charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.balance-ban-cont li i img').click(function(){
+				var img = $(this).attr("src");
+				$('.wx-ewmHide').slideDown();
+				$('.wx-ewmCont img').attr({src:""});
+				$('.wx-ewmCont img').attr({src:img});
+			});
+			$('.wx-ewmCont img').click(function(){
+				$('.wx-ewmHide').slideUp();
+			});
+		</script>
+	</body>

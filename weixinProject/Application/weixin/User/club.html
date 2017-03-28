@@ -1,0 +1,149 @@
+<!-- <include file="Public/header" />-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="keywords" content="投资理财, 互联网金融, 网络投融资平台, 网络理财, 互联网理财, 固定收益, 100% 本息保障, 汇盈金服, m.hyjf.com, wap, touch">
+<meta name="description" content="汇盈金服 hyjf.com - 提供安全、精准、高效的网络投融资服务。汇盈金服有严格的风险控制,大型机构100%本息担保,第三方资金托管,保障资金安全。">
+<meta name="apple-mobile-web-app-title" content="汇盈金服">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="format-detection" content="telephone=no"/>
+<meta http-equiv="Page-Enter" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Page-Exit" content="revealTrans(duration=4, transition=22)">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/page.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../../Public/weixin/css/validate.css"/>
+<title></title>
+</head>
+	<body>
+<body>
+  	<div class="vip-main response">
+  		<div class="vip-1"><img src="../../../Public/Weixin/images/vip-1.jpg"/>
+  		</div>
+  		<div class="vip-2">
+  		<div class="vip-join-now border-radius3">
+	            	<!--<a href="javascript:;" id="applyVipBtn">立即加入</a>-->
+	            	<a href="javascript:;" id="vipDetailBtn">查看当前等级</a>
+	  		</div>
+  			<img src="../../../Public/Weixin/images/vip-2.jpg"/>
+  		</div>
+  		<div class="vip-3"><img src="../../../Public/Weixin/images/vip-3.jpg"/></div>
+  		<div class="vip-4"><img src="../../../Public/Weixin/images/vip-4.jpg"/></div>
+  		<div class="vip-5"><img src="../../../Public/Weixin/images/vip-5.jpg"/></div>
+		<div class="vip-1"><img src="../../../Public/Weixin/images/vip-6.jpg"/></div>
+  		<div class="vip-2"><img src="../../../Public/Weixin/images/vip-7.jpg"/></div>
+  		<div class="vip-3"><img src="../../../Public/Weixin/images/vip-8.jpg"/></div>
+  		<div class="vip-4"><img src="../../../Public/Weixin/images/vip-9.jpg"/></div>
+  		<div class="vip-5"><img src="../../../Public/Weixin/images/vip-10.jpg"/></div>
+  	</div>
+  	
+    <!-- 弹出层1 开通汇付 -->
+  	<div class="balance-serv-tel">
+    	<div class="balance-serv-bg"></div>
+    	<div class="balance-serv-cont">
+    		<div class="sevice-cont">
+    			<p>
+    				开通汇付天下资金托管账户，领取<br />
+    				会员超值礼包
+    			</p>
+    			<div class="serv-sure">
+    				<ul>
+    					<li class="serv-sure-btn"><a href="javascript:;" id="operationBtn">立即开通</a></li>
+    				    <li class="service-line"></li>
+    				    <li class="serv-cancel-btn">我知道了</li>
+    				</ul>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+     <!-- 弹出层2 反复购买提交 -->
+  	<div class="balance-serv-tel2 hide">
+    	<div class="balance-serv-bg"></div>
+    	<div class="balance-serv-cont">
+    		<div class="sevice-cont">
+    			<p>
+    				会员重复购买，请刷新页面！
+    			</p>
+    			<div class="serv-sure">
+    				<ul>
+    				    <li class="serv-cancel-btn2">我知道了</li>
+    				</ul>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</body>
+	</body>
+	<script type="text/javascript" src="../../../Public/Weixin/js/jquery.min.js"></script>
+<script type="text/javascript">
+	 * vip申请按钮初始化
+	 */
+	function applyVipBtnInit(){
+		$("#applyVipBtn").click(function(){
+			$.ajax({
+				type : "POST",
+				async: false,
+				url : " ",
+				dataType : 'json',
+				data : {
+					"sign" : $('#sign').val(),
+					"platform" : $('#platform').val(),
+					"version" : $('#version').val()
+				},
+				success : function(data) {
+					if (data.status == '0') {
+						// 校验成功
+						// 跳转到汇付转账页面
+						window.location.href = "";
+					} else {
+						// 校验失败
+						if(data.errorCode=='1'){
+							// 未登录跳转到登录页面
+							window.location.href = data.request;
+						}else if(data.errorCode=='2'){
+							// 未开户
+							$("#operationBtn").click(function(){
+								// 跳转到开户页面
+								window.location.href = "hyjf://jumpH5/?{'url':'"+data.request+"'}";
+							});
+							$('.balance-serv-tel').show();
+						}else if(data.errorCode=='3'){
+							$("#operationBtn").click(function(){
+								// 跳转到充值页面
+								window.location.href = data.request;
+							});
+							$('.balance-serv-tel').find("p").text("可用余额不足");
+							$('.balance-serv-tel').find("#operationBtn").text("立即充值");
+							// 余额不足
+							$('.balance-serv-tel').show();
+						}else if(data.errorCode=='4'){
+							// vip重复购买
+							$('.balance-serv-tel2').removeClass("hide").show();
+
+						}
+						
+					}
+				},
+				error : function() {
+					console.info("回调失败");
+				}
+			});
+		});
+	}
+	
+	/**
+	 * vip查看按钮初始化
+	 */
+	function vipDetailBtnInit(){
+		$("#vipDetailBtn").click(function(){
+			// 跳转到汇付转账页面
+			window.location.href = "${ctx}/vip/userVipDetailInit?sign="+$("#sign").val();
+		});
+	}
+</script>
+</html>
